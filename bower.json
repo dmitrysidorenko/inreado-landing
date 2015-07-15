@@ -1,0 +1,21 @@
+{
+  "name": "Inreado-landing",
+  "description": "Inreado landing site",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "Super-duper",
+  "private": true,
+  "dependencies": {
+    "angular": "1.3",
+    "angular-mocks": "~1.2.15",
+    "angular-ui-router": "*",
+    "jquery": "1.11.0",
+    "requirejs": "2.1.15",
+    "angular-animate": "~1.2.15",
+    "angular-bootstrap": "*",
+    "angular-sanitize": "",
+    "angular-swipe": "~0.0.7",
+    "zepto": "*",
+    "scooch": "*"
+  }
+}
