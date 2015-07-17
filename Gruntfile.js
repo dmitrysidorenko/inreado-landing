@@ -1,3 +1,4 @@
+/*global require*/
 module.exports = function (grunt) {
     "use strict";
 
@@ -193,6 +194,16 @@ module.exports = function (grunt) {
                     methods: ["assert"]
                 }
             }
+        },
+        dusthtml: {
+            'dist': {
+                src: "./index.html.dust",
+                dest: "./index.html",
+
+                options: {
+                    context: './data.json'
+                }
+            }
         }
     });
 
@@ -206,6 +217,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks("grunt-remove-logging");
+    grunt.loadNpmTasks('grunt-dust-html');
     /*grunt.loadNpmTasks('grunt-ssh-deploy');*/
 
 // development tasks

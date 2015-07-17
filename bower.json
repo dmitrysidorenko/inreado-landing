@@ -17,5 +17,8 @@
     "angular-swipe": "~0.0.7",
     "zepto": "*",
     "scooch": "*"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
   }
 }
