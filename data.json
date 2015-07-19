@@ -1,10 +1,180 @@
 {
   "isProduction": false,
   "title": "INREADO",
+  "legals": {
+    "year": 2015,
+    "email": "team@inreado.com",
+    "website": "inreado.com"
+  },
+  "header": {
+    "title": [
+      "IN",
+      "READO"
+    ],
+    "subTitle": "beta",
+    "menu": {
+      "items": [
+        {
+          "text": "Возможности",
+          "href": "#section-possibilities"
+        },
+        {
+          "text": "Преимущества",
+          "href": "#section-advantages"
+        },
+        {
+          "text": "Стоимость",
+          "href": "#section-pricing"
+        }
+      ]
+    }
+  },
+  "getLessonBtn": "Записаться на бесплатный урок",
+  "top": {
+    "header": "Обучение никогда не было таким эффективным",
+    "subHeader": "Платформа для занятий по скайпу",
+    "id": "section-possibilities"
+  },
   "features": [
     {
-      "title": "Развитие навыков чтения",
-      "id": "reading"
+      "id": "reading",
+      "title": "Развитие навыков",
+      "subTitle": "чтения",
+      "icon": "top__features-list__item__link_reading",
+      "subFeatures": [
+        {
+          "icon": "icon-topics",
+          "title": "Адаптированные тексты на различные тематики",
+          "subTitle": "Обучающие материалы",
+          "subSubTitle": "На любой ступени обучения максимум внимания на уроке уделяется устной речи",
+          "text": "Вы начинаете говорить на английком уже на первом уроке, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+        },
+        {
+          "icon": "icon-adopted",
+          "title": "Выбор текстов для изучения по степени узнаваемости",
+          "subTitle": "Обучающие материалы",
+          "subSubTitle": "На любой ступени обучения максимум внимания на уроке уделяется устной речи",
+          "text": "Вы начинаете говорить на английком уже на первом уроке, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+        },
+        {
+          "icon": "icon-context",
+          "title": "Контекстный перевод слов",
+          "subTitle": "Обучающие материалы",
+          "subSubTitle": "На любой ступени обучения максимум внимания на уроке уделяется устной речи",
+          "text": "Вы начинаете говорить на английком уже на первом уроке, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+        }
+      ]
+    },
+    {
+      "icon": "top__features-list__item__link_listening",
+      "title": "Развитие навыков",
+      "subTitle": "понимания речи",
+      "id": "listening",
+      "subFeatures": []
+    },
+    {
+      "id": "communication",
+      "title": "Развитие навыков",
+      "subTitle": "общения",
+      "icon": "top__features-list__item__link_communication",
+      "subFeatures": []
+    },
+    {
+      "id": "preparing",
+      "title": "Самостоятельная",
+      "subTitle": "подготовка к уроку",
+      "icon": "top__features-list__item__link_preparing",
+      "subFeatures": []
+    },
+    {
+      "id": "effectiveStudy",
+      "title": "Неимоверная",
+      "subTitle": "эффективность обучения",
+      "icon": "top__features-list__item__link_effective-study",
+      "subFeatures": []
     }
-  ]
+  ],
+  "advantages": {
+    "header": "Преимущества",
+    "subHeader": "Education open minds. Technology connects them. We bring you the best of both, all in one place.",
+    "list": [
+      {
+        "title": "Обучающие материалы",
+        "icon": "advantages__list__item__icon_materials",
+        "text": "На любой ступени обучения максимум внимания на уроке уделяется устной речи. Вы начинаете говорить на английском уже с первого урока."
+      },
+      {
+        "title": "С мобильного телефона",
+        "icon": "advantages__list__item__icon_studying",
+        "text": "Вы начинаете говорить на английском уже с первого урока, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+      },
+      {
+        "title": "Грамматика",
+        "icon": "advantages__list__item__icon_grammatic",
+        "text": "На любой ступени обучения максимум внимания на уроке уделяется устной речи. Вы начинаете говорить на английском уже с первого урока, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+      },
+      {
+        "title": "Индивидуальность",
+        "icon": "advantages__list__item__icon_individual",
+        "text": "На любой ступени обучения максимум внимания на уроке уделяется устной речи. Вы начинаете говорить на английском уже с первого урока, даже если пришли с нулевым уровнем. Новая лексика и грамматические конструкции изучаются и запоминаются в процессе общения."
+      },
+      {
+        "title": "Эффективность",
+        "icon": "advantages__list__item__icon_effective",
+        "text": "На любой ступени обучения максимум внимания на уроке уделяется устной речи. Вы начинаете говорить на английском уже с первого урока, даже если пришли с нулевым уровнем."
+      }
+    ],
+    "id": "section-advantages"
+  },
+  "pricing": {
+    "header": "Стоимость",
+    "subHeader": "Education open minds. Technology conects them. We bring you the best of both, all in one place.",
+    "bigPrice": {
+      "amount": "1200",
+      "currency": "UAH",
+      "period": "месяц"
+    },
+    "list": [
+      {
+        "icon": "pricing__list__item__icon_calendar",
+        "title": "Кол-во занятий",
+        "text": "2 в неделю"
+      },
+      {
+        "icon": "pricing__list__item__icon_time",
+        "title": "Длительность 1 урока",
+        "text": "1.5 часа"
+      },
+      {
+        "icon": "pricing__list__item__icon_card",
+        "title": "Стоимость 1 урока",
+        "text": "70 UAH"
+      }
+    ],
+    "id": "section-pricing"
+  },
+  "feedback": {
+    "id": "feedbacks",
+    "list": [
+      {
+        "title": "Ivan",
+        "text": "Hello! Your website is really good. I subscribed to updates and I'd really like to see more articles to read. Look forward to seeing new content!"
+      },
+      {
+        "title": "Vasiliy",
+        "text": "Awesome app"
+      },
+      {
+        "title": "Chuck Norris",
+        "text": "I do not always do thins like that. But when I do I do it awesome."
+      }
+    ]
+  },
+  "getLessonForm": {
+    "title": "Заявка на бесплатное занятие",
+    "namePlaceholder": "ИМЯ И ФАМИЛИЯ",
+    "phonePlaceholder": "ТЕЛЕФОН",
+    "emailPlaceholder": "E-MAIL",
+    "submitBtn": "Записаться на бесплатный урок &rarr;"
+  }
 }

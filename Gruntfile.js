@@ -201,7 +201,9 @@ module.exports = function (grunt) {
                 dest: "./index.html",
 
                 options: {
-                    context: './data.json'
+                    context: "./data.json",
+                    whitespace: true,
+                    module: "dustjs-helpers"
                 }
             }
         }

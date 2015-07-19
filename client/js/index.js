@@ -3,10 +3,8 @@
     "use strict";
 
     $(function () {
-        var getLessonButtons = $('[data-action="get-lesson"]');
-        var getLessonPopupElement = $('[data-popup="get-lesson"]');
+        var popups = {};
         var popupOverlap = $('.overlap');
-        var getLessonPopup = createPopup(getLessonPopupElement);
         var tabsetTabs = {};
         var tabsetParentElement = $('[data-tabset-element]');
         var tabset = new global.TabSet(tabsetParentElement, {selectedClass: 'm-active'});
@@ -42,12 +40,20 @@
 
 
         function init() {
-            getLessonButtons.each(function (i, el) {
-                $(el).on('click', getLessonPopup.show);
+            $('[data-popup]').each(function (i, el) {
+                var $el = $(el);
+                var popupId = $el.data('popup');
+                popups[popupId] = createPopup($el, {});
+            });
+            $('[data-open-popup]').click(function () {
+                var popupId = $(this).data('open-popup');
+                if (popups[popupId]) {
+                    popups[popupId].show();
+                }
             });
             tabset.init();
             tabset.selectTab(tabset.getTab(0));
-            $('#feedbacks').scooch();
+            $('.m-scooch').scooch();
         }
 
         function createPopup(element, options) {
@@ -61,6 +67,9 @@
             }
 
             function show() {
+                $.each(popups, function (i, popup) {
+                    popup.hide();
+                });
                 popupOverlap.show();
                 element.show();
             }
