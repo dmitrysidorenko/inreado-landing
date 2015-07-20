@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="ru">
     <meta charset="UTF-8">
     <title>{title}</title>
 
@@ -22,21 +22,23 @@
 <body>
 
 <header class="header">
-    <a class="header__menu-icon"></a>
-    <a class="header__logo" href="/"><span>{header.title[0]}</span><span>{header.title[1]}</span><span
-            class="header__logo__beta">{header.subTitle}</span></a>
+    <div class="header__content">
+        <a class="header__menu-icon"></a>
+        <a class="header__logo"><span>{header.title[0]}</span><span>{header.title[1]}</span><span
+                class="header__logo__beta">{header.subTitle}</span></a>
 
-    <div class="header__menu">
-        <ul class="header__menu__list">
-            {#header.menu.items}
+        <div class="header__menu">
+            <ul class="header__menu__list">
+                {#header.menu.items}
+                    <li class="header__menu__list__item">
+                        <a class="header__menu__list__item__link" href="{.href}">{.text}</a>
+                    </li>
+                {/header.menu.items}
                 <li class="header__menu__list__item">
-                    <a class="header__menu__list__item__link" href="{.href}">{.text}</a>
+                    <a class="header__menu__list__item__link" data-open-popup="getLesson">Бесплатное занятие</a>
                 </li>
-            {/header.menu.items}
-            <li class="header__menu__list__item">
-                <a class="header__menu__list__item__link" data-open-popup="getLesson">Бесплатное занятие</a>
-            </li>
-        </ul>
+            </ul>
+        </div>
     </div>
 </header>
 
@@ -44,7 +46,7 @@
     <h1 class="top__header">{top.header}</h1>
 
     <h2 class="top__sub-header">{top.subHeader}</h2>
-    <button class="btn" data-open-popup="getLesson">{getLessonBtn}</button>
+    <button class="btn top__get-lesson-btn" data-open-popup="getLesson">{getLessonBtn}</button>
     <ul class="top__features-list" data-tabset-element>
         {#features}
             <li class="top__features-list__item" data-tabset-tab="{id}">
@@ -57,90 +59,120 @@
 </section>
 
 <section class="features">
-    {#features}
-        <ul class="features__list" data-tabset-content="{.id}">
+    <div class="features__content">
+        {#features}
+            <ul class="features__list" data-tabset-content="{.id}">
+                {#subFeatures parent=features[$idx]}
+                    <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}">
+                        <a class="features__list__item__link {.icon}">{.title}</a>
+                        <i class="features__list__item__icon-arrow"></i>
+                    </li>
+                {/subFeatures}
+            </ul>
             {#subFeatures parent=features[$idx]}
-                <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}">
-                    <a class="features__list__item__link {.icon}">{.title}</a>
-                    <i class="features__list__item__icon-arrow"></i>
-                </li>
+                <div class="features__sub-feature">
+                    <div class="sub-feature">
+                        <h2 class="sub-feature__sub-title">{.subTitle}</h2>
+
+                        <h3 class="sub-feature__sub-sub-title">{.subSubTitle}</h3>
+
+                        <div class="sub-feature__text">{.text}</div>
+                    </div>
+                </div>
             {/subFeatures}
-        </ul>
-    {/features}
+        {/features}
+    </div>
 </section>
 
 <section class="advantages" id="{advantages.id}">
-    <i class="advantages__icon"></i>
-    <header class="advantages__header">{advantages.header}</header>
-    <h2 class="advantages__sub-header">{advantages.subHeader}</h2>
-    <ul class="advantages__list">
-        {#advantages.list}
-            <li class="advantages__list__item">
-                <i class="advantages__list__item__icon {.icon}"></i>
+    <div class="advantages__content">
+        <div class="advantages__header-container">
+            <i class="advantages__icon"></i>
+            <header class="advantages__header">{advantages.header}</header>
+        </div>
+        <h2 class="advantages__sub-header">{advantages.subHeader}</h2>
+        <ul class="advantages__list">
+            {#advantages.list}
+                <li class="advantages__list__item">
+                    <i class="advantages__list__item__icon {.icon}"></i>
 
-                <h3 class="advantages__list__item__title">{.title}</h3>
+                    <div class="advantages__list__item__content">
 
-                <div class="advantages__list__item__text">{.text}</div>
-                {@sep}
-                    <div class="advantages__list__item__delimeter"></div>
-                {/sep}
-            </li>
-        {/advantages.list}
-    </ul>
+                        <h3 class="advantages__list__item__title">{.title}</h3>
+
+                        <div class="advantages__list__item__text">{.text}</div>
+
+                        <div class="advantages__list__item__bottom">
+
+                        </div>
+                    </div>
+                    {@sep}
+                        <div class="advantages__list__item__delimeter"></div>
+                    {/sep}
+                </li>
+            {/advantages.list}
+        </ul>
+    </div>
 </section>
 
 <section class="pricing" id="{pricing.id}">
-    <i class="pricing__icon"></i>
+    <div class="pricing__content">
+        <div class="pricing__header-container">
+            <i class="pricing__icon"></i>
 
-    <h1 class="pricing__header">{pricing.header}</h1>
-
-    <h2 class="pricing__sub-header">{pricing.subHeader}</h2>
-
-    <ul class="pricing__list">
-        {#pricing.list}
-            <li class="pricing__list__item">
-                <i class="pricing__list__item__icon {.icon}"></i>
-
-                <h3 class="pricing__list__item__title">{.title}</h3>
-
-                <div class="pricing__list__item__text">{.text}</div>
-            </li>
-        {/pricing.list}
-    </ul>
-    <div class="pricing__big-price">
-        <div class="pricing__big-price__left">
-            <span class="pricing__big-price__amount">{bigPrice.amount}</span>
+            <h1 class="pricing__header">{pricing.header}</h1>
         </div>
-        <div class="pricing__big-price__right">
-            <span class="pricing__big-price__currency">{bigPrice.currency}</span>
-            <span class="pricing__big-price__period">{bigPrice.period}</span>
+
+        <h2 class="pricing__sub-header">{pricing.subHeader}</h2>
+
+        <ul class="pricing__list">
+            {#pricing.list}
+                <li class="pricing__list__item">
+                    <i class="pricing__list__item__icon {.icon}"></i>
+
+                    <h3 class="pricing__list__item__title">{.title}</h3>
+
+                    <div class="pricing__list__item__text">{.text}</div>
+                </li>
+            {/pricing.list}
+        </ul>
+        <div class="pricing__big-price">
+            <div class="pricing__big-price__left">
+                <span class="pricing__big-price__amount">{pricing.bigPrice.amount}</span>
+            </div>
+            <div class="pricing__big-price__right">
+                <span class="pricing__big-price__currency">{pricing.bigPrice.currency}</span>
+                <span class="pricing__big-price__period">{pricing.bigPrice.period}</span>
+            </div>
         </div>
+
+        <button class="btn pricing__btn" data-open-popup="getLesson">{getLessonBtn}</button>
     </div>
-
-    <button class="btn pricing__btn" data-open-popup="getLesson">{getLessonBtn}</button>
 </section>
 
 <section class="feedback">
-    <div id="{feedback.id}" class="m-scooch m-fluid">
-        <a class="feedback__next" href="#" data-m-slide="next"></a>
-        <a class="feedback__prev" href="#" data-m-slide="prev"></a>
-        <!-- the slider -->
-        <div class="m-scooch-inner feedback__list">
-            <!-- the items -->
-            {#feedback.list}
-                <div class="m-item m-active feedback__list__item">
-                    <h1 class="feedback__list__item__title">{.title}</h1>
+    <div class="feedback__content">
+        <div id="{feedback.id}" class="m-scooch m-fluid">
+            <a class="feedback__next" href="#" data-m-slide="next"></a>
+            <a class="feedback__prev" href="#" data-m-slide="prev"></a>
+            <!-- the slider -->
+            <div class="m-scooch-inner feedback__list">
+                <!-- the items -->
+                {#feedback.list}
+                    <div class="m-item m-active feedback__list__item">
+                        <h1 class="feedback__list__item__title">{.title}</h1>
 
-                    <div class="feedback__list__item__text">{.text}</div>
-                </div>
-            {/feedback.list}
-        </div>
-        <!-- the controls -->
-        <div class="m-scooch-controls m-scooch-bulleted">
-            {#feedback.list}
-                <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
-                   class="{@first}m-active{/first}">{$idx}</a>
-            {/feedback.list}
+                        <div class="feedback__list__item__text">{.text}</div>
+                    </div>
+                {/feedback.list}
+            </div>
+            <!-- the controls -->
+            <div class="m-scooch-controls m-scooch-bulleted">
+                {#feedback.list}
+                    <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
+                       class="{@first}m-active{/first}">{$idx}</a>
+                {/feedback.list}
+            </div>
         </div>
     </div>
 </section>
@@ -166,8 +198,8 @@
     <div class="popup__content">
         <h1 class="popup__title">{getLessonForm.title}</h1>
 
-        <div class="get-lesson">
-            <form data-form="get-lesson">
+        <div class="get-lesson get-lesson_mobile">
+            <form>
                 <div class="get-lesson__form-control">
                     <input class="get-lesson__input get-lesson__input_name" type="text" name="name"
                            placeholder="{getLessonForm.namePlaceholder}"/>
@@ -183,8 +215,62 @@
 
             </form>
         </div>
+
+        <div class="get-lesson get-lesson_desktop">
+            <div class="get-lesson__form">
+                <h1 class="get-lesson__form__title">{getLessonForm.title}</h1>
+
+                <form>
+                    <div class="get-lesson__form__form-control">
+                        <input class="get-lesson__form__input get-lesson__form__input_name" type="text" name="name"
+                               placeholder="{getLessonForm.namePlaceholder}"/>
+                    </div>
+                    <div class="get-lesson__form__form-control">
+                        <input class="get-lesson__form__input get-lesson__form__input_phone" type="phone" name="phone"
+                               placeholder="{getLessonForm.phonePlaceholder}"/>
+                    </div>
+                    <div class="get-lesson__form__form-control">
+                        <input class="get-lesson__form__input get-lesson__form__input_email" type="email" name="email"
+                               placeholder="{getLessonForm.emailPlaceholder}"/>
+                    </div>
+
+                    <button class="btn get-lesson__form__submit">{getLessonForm.desktopSubmitBtn|s}</button>
+
+                    <div class="get-lesson__form__help-text">{getLessonForm.helpText}</div>
+                    <div class="get-lesson__form__phone">{getLessonForm.phone}</div>
+                </form>
+            </div>
+            <div class="get-lesson__description">
+                <h1 class="get-lesson__description__title">{getLessonDescription.title}</h1>
+
+                <ul class="get-lesson__description__list">
+                    {#getLessonDescription.list}
+                        <li class="get-lesson__description__list__item">
+                            <i class="get-lesson__description__list__item__icon {.icon}"></i>
+
+                            <div class="get-lesson__description__list__item__key">{.key}</div>
+                            <div class="get-lesson__description__list__item__value">{.value}</div>
+                        </li>
+                    {/getLessonDescription.list}
+                </ul>
+                <h2 class="get-lesson__description__sub-title">{getLessonDescription.subTitle}</h2>
+
+                <div class="get-lesson__description__text">{getLessonDescription.text}</div>
+
+                <ul class="get-lesson__description__list-2">
+                    {#getLessonDescription.list2}
+                        <li class="get-lesson__description__list-2__item">
+                            <div class="get-lesson__description__list-2__item__value">{.}</div>
+                        </li>
+                    {/getLessonDescription.list2}
+                </ul>
+
+                <h2 class="get-lesson__description__sub-sub-title">{getLessonDescription.subSubTitle}</h2>
+            </div>
+
+        </div>
     </div>
-    <button class="btn btn_popup">{getLessonForm.submitBtn|s}</button>
+    <button class="btn btn_popup get-lesson-btn-mobile">{getLessonForm.submitBtn|s}</button>
 </div>
 
     {#features}

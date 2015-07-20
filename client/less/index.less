@@ -1,7 +1,9 @@
-@import './popup';
 @import './get-lesson';
 @import './override';
 @import './icons';
+
+@calibri_font: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+@lato_font: Lato, Helvetica Neue, Helvetica, Arial, serif;
 
 * {
   box-sizing : border-box;
@@ -11,6 +13,12 @@ body {
   margin      : 0;
   padding     : 0;
   font-family : Lato, Helvetica Neue, Helvetica, Arial, serif;
+}
+
+html, body {
+  &.popup-shown {
+    overflow : hidden;
+  }
 }
 
 :focus::-webkit-input-placeholder {
@@ -35,8 +43,10 @@ h1, h2, h3, h4 {
 
 @media only screen and (max-width : 1024px), only screen and (max-device-width : 773px) {
   @import "./mobile";
+  @import './popup-mobile';
 }
 
-@media only screen and (min-width : 1024px){
+@media only screen and (min-width : 1024px) {
   @import "./desktop";
+  @import './popup-desktop';
 }

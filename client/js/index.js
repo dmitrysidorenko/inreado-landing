@@ -54,6 +54,11 @@
             tabset.init();
             tabset.selectTab(tabset.getTab(0));
             $('.m-scooch').scooch();
+            popupOverlap.on('click', function () {
+                $.each(popups, function (i, popup) {
+                    popup.hide();
+                });
+            });
         }
 
         function createPopup(element, options) {
@@ -64,6 +69,7 @@
                     options.hide();
                 }
                 element.hide();
+                $('html').removeClass('popup-shown');
             }
 
             function show() {
@@ -72,6 +78,7 @@
                 });
                 popupOverlap.show();
                 element.show();
+                $('html').addClass('popup-shown');
             }
 
             element.find('[data-action="close"]').on('click', hide);

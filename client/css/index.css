@@ -1,45 +1,5 @@
-.overlap {
-  position: fixed;
-  background: #000;
-  opacity: 0.8;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.get-lesson {
   display: none;
-  z-index: 2;
-}
-.popup {
-  position: fixed;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 125px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 40px;
-  display: none;
-  z-index: 2;
-}
-.popup__title {
-  margin-bottom: 60px;
-  color: #2b3c48;
-  text-align: center;
-  font-size: 42px;
-}
-.popup__close-icon {
-  position: fixed;
-  top: 50px;
-  right: 68px;
-  font-size: 74px;
-  line-height: 74px;
-  color: #2b3c48;
-  cursor: pointer;
-}
-.popup__content {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
 }
 .get-lesson__form-control {
   margin-bottom: 34px;
@@ -72,6 +32,8 @@ body .m-scooch-bulleted a {
   background-color: #DCDCDC;
   box-shadow: none;
 }
+body .m-scooch-bulleted a:hover,
+body .m-scooch-bulleted a:focus,
 body .m-scooch-bulleted a.m-active {
   background-color: #36C79D;
   box-shadow: none;
@@ -92,6 +54,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+}
+html.popup-shown,
+body.popup-shown {
+  overflow: hidden;
 }
 :focus::-webkit-input-placeholder {
   color: transparent;
@@ -242,6 +208,9 @@ h4 {
   }
   .features {
     padding: 0 38px;
+  }
+  .features__sub-feature {
+    display: none;
   }
   .features__list {
     background-color: #ffffff;
@@ -629,6 +598,55 @@ h4 {
     left: 0;
     right: 0;
   }
+  .get-lesson.get-lesson_mobile {
+    display: block;
+  }
+  .get-lesson-btn-mobile {
+    display: inline-block;
+  }
+  .overlap {
+    position: fixed;
+    background: #000;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 2;
+  }
+  .popup {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 125px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    display: none;
+    z-index: 2;
+  }
+  .popup__title {
+    margin-bottom: 60px;
+    color: #2b3c48;
+    text-align: center;
+    font-size: 42px;
+  }
+  .popup__close-icon {
+    position: fixed;
+    top: 50px;
+    right: 68px;
+    font-size: 74px;
+    line-height: 74px;
+    color: #2b3c48;
+    cursor: pointer;
+  }
+  .popup__content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .header {
@@ -641,6 +659,10 @@ h4 {
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
     z-index: 1;
   }
+  .header__content {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
   .header__menu-icon {
     background: transparent url('../resources/img/sandwich.png') no-repeat center center;
     background-size: 16px 13px;
@@ -648,6 +670,8 @@ h4 {
     height: 26px;
     display: inline-block;
     cursor: pointer;
+    margin: 12px 0;
+    float: left;
   }
   .header__logo {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
@@ -656,6 +680,8 @@ h4 {
     font-weight: 400;
     text-decoration: none;
     text-transform: uppercase;
+    float: left;
+    line-height: 49px;
   }
   .header__logo > span:nth-child(2) {
     color: #324255;
@@ -668,6 +694,8 @@ h4 {
     text-transform: none;
     letter-spacing: normal;
     display: inline-block;
+    position: relative;
+    top: -16px;
   }
   .header__menu {
     float: right;
@@ -686,10 +714,10 @@ h4 {
     color: #707a88;
     font-size: 15px;
     font-weight: 700;
-    line-height: 36px;
     text-align: left;
     cursor: pointer;
     text-decoration: none;
+    line-height: 49px;
   }
   .header__menu__list__item__link:hover,
   .header__menu__list__item__link:active,
@@ -723,15 +751,16 @@ h4 {
   .top__features-list {
     list-style: none;
     padding: 0;
-    margin: 70px 0 0 0;
+    margin: 0 auto;
     white-space: nowrap;
     overflow: hidden;
     display: block;
+    max-width: 950px;
   }
   .top__features-list__item {
     display: inline-block;
-    margin-right: 60px;
     position: relative;
+    width: 20%;
   }
   .top__features-list__item.m-active > .top__features-list__item__arrow {
     display: inline-block;
@@ -739,35 +768,39 @@ h4 {
   .top__features-list__item__link {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #53eab0;
-    font-size: 26px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 18px;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 45px;
     display: block;
-    padding-bottom: 54px;
+    padding-bottom: 53px;
+    background-size: 40px;
+    background-color: transparent;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
   .top__features-list__item__link.top__features-list__item__link_reading {
-    background: transparent url("../resources/img/icon-reading_x2.png") no-repeat top center;
+    background-image: url("../resources/img/icon-reading_x2.png");
   }
   .top__features-list__item__link.top__features-list__item__link_listening {
-    background: transparent url("../resources/img/icon-listening_x2.png") no-repeat top center;
+    background-image: url("../resources/img/icon-listening_x2.png");
   }
   .top__features-list__item__link.top__features-list__item__link_communication {
-    background: transparent url("../resources/img/icon-communication_x2.png") no-repeat top center;
+    background-image: url("../resources/img/icon-communication_x2.png");
   }
   .top__features-list__item__link.top__features-list__item__link_preparing {
-    background: transparent url("../resources/img/icon-preparing_x2.png") no-repeat top center;
+    background-image: url("../resources/img/icon-preparing_x2.png");
   }
   .top__features-list__item__link.top__features-list__item__link_effective-study {
-    background: transparent url("../resources/img/icon-effective-study_x2.png") no-repeat top center;
+    background-image: url("../resources/img/icon-effective-study_x2.png");
   }
   .top__features-list__item__link__subname {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #ffffff;
-    font-size: 34px;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 34px;
+    line-height: 18px;
     text-align: center;
     text-transform: uppercase;
     display: block;
@@ -775,25 +808,57 @@ h4 {
   .top__features-list__item__arrow {
     width: 0;
     height: 0;
-    border: 16px solid #fff;
+    border: 8px solid #fff;
     border-color: transparent transparent #fff transparent;
+    border-width: 0 8px 12px 8px;
     position: absolute;
     bottom: -1px;
     left: 50%;
-    margin-left: -16px;
+    margin-left: -8px;
     display: none;
+  }
+  .top > .top__get-lesson-btn {
+    margin-bottom: 70px;
+  }
+  .top__get-lesson-btn {
+    position: relative;
+    outline: none;
+  }
+  .top__get-lesson-btn::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 9px;
+    width: 17px;
+    height: 21px;
+    background: transparent url('../resources/img/icon-arrow-new-line.png') no-repeat center center;
   }
   .features {
     padding: 0 38px;
+    overflow: hidden;
+    background: transparent url('../resources/img/houses.png') repeat-x bottom center;
+    padding-bottom: 75px;
+    background-size: 100% 70px;
+  }
+  .features__content {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .features__sub-feature {
+    display: none;
+    float: left;
+    width: 70%;
+    padding: 36px 0 22px 42px;
   }
   .features__list {
     background-color: #ffffff;
     list-style: none;
-    padding: 0;
+    padding: 22px 0 0 0;
     margin: 0;
+    width: 30%;
+    float: left;
   }
   .features__list__item {
-    border-bottom: 1px solid #aaaaaa;
     position: relative;
   }
   .features__list__item:last-child {
@@ -802,23 +867,22 @@ h4 {
   .features__list__item__link {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #818c9d;
-    font-size: 30px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 17px;
     text-align: left;
     display: block;
-    padding: 34px 38px 34px 70px;
+    padding: 14px 0 14px 41px;
     background-repeat: no-repeat;
     background-position: left center;
+    border-bottom: 1px dotted #E9EFF1;
+    background-size: 23px;
+  }
+  .features__list__item:last-child > .features__list__item__link {
+    border-bottom: none;
   }
   .features__list__item__icon-arrow {
-    height: 27px;
-    width: 16px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -14px;
-    background: transparent url('../resources/img/arrow-right.png') no-repeat center center;
+    display: none;
   }
   .sub-feature {
     text-align: center;
@@ -835,21 +899,21 @@ h4 {
   }
   .sub-feature__sub-title {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    margin-bottom: 60px;
-    color: #2b3c48;
-    text-align: center;
-    font-size: 46px;
-    line-height: 60px;
-    font-weight: 500;
+    color: #707a88;
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: left;
+    margin-bottom: 10px;
   }
   .sub-feature__sub-sub-title {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    margin-bottom: 60px;
-    color: #2b3c48;
-    text-align: center;
-    font-size: 42px;
-    line-height: 54px;
-    font-weight: normal;
+    color: #707a88;
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: left;
+    margin-bottom: 10px;
   }
   .sub-feature__icon {
     display: inline-block;
@@ -863,41 +927,51 @@ h4 {
     margin-bottom: 60px;
   }
   .sub-feature__text {
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    color: #707a88;
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 50px;
-    text-align: center;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #818c9d;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
   }
   .advantages {
     background: #f4f6f8;
-    padding: 42px 10px 0 10px;
     text-align: center;
+    padding-bottom: 43px;
+  }
+  .advantages__content {
+    max-width: 950px;
+    padding: 42px 10px 0 10px;
+    margin: 0 auto;
+  }
+  .advantages__header-container {
+    margin-bottom: 39px;
   }
   .advantages__icon {
-    background: url('../resources/img/advantages_icon.png') no-repeat center center;
-    display: block;
-    height: 18px;
-    margin-bottom: 38px;
+    display: none;
   }
   .advantages__header {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 48px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 20px;
     text-align: center;
-    margin-bottom: 31px;
+    padding-left: 29px;
+    background: transparent url('../resources/img/advantages_icon_active.png') no-repeat left center;
+    background-size: 18px 10px;
+    display: inline-block;
   }
   .advantages__sub-header {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 42px;
     text-align: center;
-    margin-bottom: 45px;
+    width: 675px;
+    display: inline-block;
+    margin-bottom: 77px;
   }
   .advantages__list {
     list-style: none;
@@ -905,126 +979,157 @@ h4 {
     margin: 0;
   }
   .advantages__list__item {
-    padding-bottom: 59px;
-    text-align: center;
+    overflow: hidden;
+  }
+  .advantages__list__item__content {
+    float: left;
+    text-align: right;
+    width: 50%;
+    padding: 0 34px 0 0;
+  }
+  .advantages__list__item:nth-child(odd) > .advantages__list__item__icon {
+    background-position: right center;
+    float: left;
+  }
+  .advantages__list__item:nth-child(odd) > .advantages__list__item__content {
+    float: right;
+    text-align: left;
+    padding: 0 0 0 34px;
   }
   .advantages__list__item__icon {
-    margin-bottom: 36px;
-    display: block;
-    height: 130px;
+    display: inline-block;
+    width: 50%;
+    min-height: 260px;
+    background-size: 260px auto;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: left center;
+    float: right;
   }
   .advantages__list__item__icon.advantages__list__item__icon_materials {
-    background: transparent url('../resources/img/advatage_materials.png') no-repeat center center;
-    height: 182px;
+    background-image: url('../resources/img/advatage_materials_big.png');
   }
   .advantages__list__item__icon.advantages__list__item__icon_studying {
-    background: transparent url('../resources/img/studying.png') no-repeat center center;
-    height: 182px;
+    background-image: url('../resources/img/studying_big.png');
   }
   .advantages__list__item__icon.advantages__list__item__icon_grammatic {
-    background: transparent url('../resources/img/grammatic.png') no-repeat center center;
+    background-image: url('../resources/img/grammatic_big.png');
   }
   .advantages__list__item__icon.advantages__list__item__icon_individual {
-    background: transparent url('../resources/img/individual.png') no-repeat center center;
+    background-image: url('../resources/img/individual_big.png');
   }
   .advantages__list__item__icon.advantages__list__item__icon_effective {
-    background: transparent url('../resources/img/effective.png') no-repeat center center;
+    background-image: url('../resources/img/effective_big.png');
   }
   .advantages__list__item__title {
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 40px;
-    text-align: center;
-    padding-bottom: 26px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1.2px;
+    line-height: 30px;
+    margin-bottom: 17px;
   }
   .advantages__list__item__text {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    color: #707a88;
-    font-size: 32px;
+    color: #5f656d;
+    font-size: 17px;
     font-weight: 300;
-    line-height: 42px;
-    text-align: center;
+    line-height: 23px;
+    margin-bottom: 19px;
   }
   .advantages__list__item__delimeter {
-    border-bottom: 1px solid #aaaaaa;
-    width: 198px;
-    display: inline-block;
-    padding-top: 57px;
+    display: none;
   }
   .pricing {
-    padding: 50px 10px 40px 10px;
+    padding: 50px 10px 113px 10px;
     text-align: center;
   }
+  .pricing__content {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .pricing__header-container {
+    margin-bottom: 34px;
+  }
   .pricing__icon {
-    background: transparent url('../resources/img/icon-wallet.png') no-repeat center center;
-    height: 30px;
-    display: block;
-    margin-bottom: 24px;
+    display: none;
   }
   .pricing__header {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 48px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 20px;
     text-align: center;
-    padding-bottom: 41px;
+    padding-left: 29px;
+    background: transparent url('../resources/img/icon-wallet_active.png') no-repeat left center;
+    background-size: 20px 19px;
+    display: inline-block;
   }
   .pricing__sub-header {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 42px;
     text-align: center;
-    padding-bottom: 42px;
+    width: 675px;
+    display: inline-block;
+    margin-bottom: 56px;
   }
   .pricing__list {
     list-style: none;
-    padding: 0 0 80px 0;
+    padding: 0 0 70px 0;
     margin: 0;
   }
   .pricing__list__item {
     text-align: center;
-    padding-bottom: 50px;
+    display: inline-block;
+    width: 33%;
   }
   .pricing__list__item:last-child {
     padding-bottom: 0;
   }
   .pricing__list__item__icon {
     display: block;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 50px;
   }
   .pricing__list__item__icon.pricing__list__item__icon_calendar {
-    background: transparent url('../resources/img/icon_calender.png') no-repeat center center;
-    height: 46px;
+    background-image: url('../resources/img/icon_calender.png');
+    background-size: auto 28px;
   }
   .pricing__list__item__icon.pricing__list__item__icon_time {
-    background: transparent url('../resources/img/icon_time.png') no-repeat center center;
-    height: 47px;
+    background-image: url('../resources/img/icon_time.png');
+    background-size: auto 29px;
   }
   .pricing__list__item__icon.pricing__list__item__icon_card {
-    background: transparent url('../resources/img/icon_card.png') no-repeat center center;
-    height: 55px;
+    background-image: url('../resources/img/icon_card.png');
+    background-size: auto 36px;
   }
   .pricing__list__item__title {
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 42px;
+    letter-spacing: 1.2px;
+    line-height: 20px;
+    text-align: center;
+    padding-bottom: 13px;
   }
   .pricing__list__item__text {
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    color: #56606e;
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 42px;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #2b3c48;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
   }
   .pricing__big-price {
-    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    margin-bottom: 56px;
+    margin-bottom: 38px;
     color: #2b3c48;
   }
   .pricing__big-price__left {
@@ -1032,56 +1137,70 @@ h4 {
   }
   .pricing__big-price__right {
     display: inline-block;
+    font-size: 0;
+    vertical-align: super;
   }
   .pricing__big-price__amount {
-    font-size: 60px;
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    font-size: 45px;
     font-weight: 300;
-    line-height: 60px;
+    line-height: 45px;
   }
   .pricing__big-price__currency {
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 30px;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     text-align: left;
     display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
   }
   .pricing__big-price__period {
-    font-size: 22px;
-    font-weight: 300;
-    line-height: 17px;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     text-align: left;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 13px;
   }
   .feedback {
     background: #fff;
-    padding: 40px 0;
+    padding-bottom: 37px;
     text-align: center;
     position: relative;
+  }
+  .feedback__content {
+    max-width: 1170px;
+    margin: 0 auto;
   }
   .feedback__list__item__title {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 48px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 25px;
     text-align: center;
+    padding-bottom: 36px;
+    max-width: 350px;
+    margin: 0 auto;
   }
   .feedback__list__item__text {
-    color: #707a88;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 42px;
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    color: #5f656d;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
     text-align: center;
-    padding: 44px 51px;
+    padding-bottom: 44px;
     position: relative;
-    margin: 0 56px;
+    max-width: 350px;
+    margin: 0 auto;
   }
   .feedback__list__item__text::before {
     content: '';
     width: 67px;
     height: 44px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -44px;
+    left: -112px;
     background: transparent url('../resources/img/quotes_left.png') no-repeat center center;
   }
   .feedback__list__item__text::after {
@@ -1090,7 +1209,7 @@ h4 {
     height: 44px;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -112px;
     background: transparent url('../resources/img/quotes_right.png') no-repeat center center;
   }
   .feedback__next {
@@ -1114,17 +1233,17 @@ h4 {
   .footer {
     background-color: #f4f6f8;
     border-top: 1px solid #ECEEF0;
-    padding: 28px 16px 28px 16px;
+    padding: 24px 16px 22px 16px;
     text-align: center;
   }
   .footer__info {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #818c9d;
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
     text-align: center;
-    padding-top: 28px;
+    padding-top: 20px;
   }
   .footer__info__email {
     color: inherit;
@@ -1133,23 +1252,24 @@ h4 {
   .logo {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #324356;
-    font-size: 50px;
+    font-size: 24px;
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
   }
   .logo__in {
     color: #36c99e;
-    font-size: 50px;
+    font-size: 24px;
     font-weight: 400;
   }
   .logo__beta {
     color: #324356;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 300;
     text-transform: none;
     vertical-align: top;
     display: inline-block;
+    margin-top: -4px;
   }
   .btn {
     background-color: #2ecc71;
@@ -1171,5 +1291,45 @@ h4 {
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  .get-lesson.get-lesson_desktop {
+    display: block;
+  }
+  .get-lesson-btn-mobile {
+    display: none;
+  }
+  .overlap {
+    position: fixed;
+    background: #000;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 2;
+  }
+  .popup {
+    position: fixed;
+    top: 50%;
+    margin-top: -295px;
+    left: 50%;
+    margin-left: -450px;
+    display: none;
+    z-index: 2;
+  }
+  .popup__close-icon {
+    position: fixed;
+    top: 50px;
+    right: 68px;
+    font-size: 74px;
+    line-height: 74px;
+    color: #2b3c48;
+    cursor: pointer;
+  }
+  .popup__content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
   }
 }
