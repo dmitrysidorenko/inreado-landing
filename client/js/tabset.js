@@ -11,7 +11,7 @@
     }
 
     TabSet.prototype = {
-        addTab: function (el, content) {
+        addTab: function (el, content, cb) {
             var _this = this;
             var tab = {
                 el: $(el),
@@ -22,7 +22,8 @@
                         tab.isBinded = true;
                         tab.el.on('click', _this.selectTab.bind(_this, tab));
                     }
-                }
+                },
+                cb: cb || $.noop
             };
             this.tabs.push(tab);
         },
@@ -49,6 +50,9 @@
             var shift = perfectTabLeft - tabLeft;
             var scroll = parentScrollLeft - shift;
             this.parentElement.scrollLeft(scroll);
+            if ($.isFunction(tab.cb)) {
+                tab.cb.call(null);
+            }
         }
     };
 

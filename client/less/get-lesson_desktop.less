@@ -1,0 +1,181 @@
+.get-lesson {
+  display  : none;
+  overflow : hidden;
+
+  &__form__form-control {
+    margin-bottom : 32px;
+  }
+
+  &__form__input {
+    font-family   : @calibri_font;
+    border        : none;
+    border-bottom : 1px solid #BDC3C6;
+    font-size     : 17px;
+    width         : 100%;
+    color         : #2b3c48;
+    font-weight   : 400;
+    line-height   : 42px;
+
+    &::-moz-placeholder {
+      color          : #707a88;
+      text-overflow  : ellipsis;
+      text-transform : uppercase;
+    }
+    &:-moz-placeholder {
+      color          : #707a88;
+      text-overflow  : ellipsis;
+      text-transform : uppercase;
+    }
+    &:-ms-input-placeholder {
+      color          : #707a88;
+      text-overflow  : ellipsis;
+      text-transform : uppercase;
+    }
+
+    &&_name {
+    }
+
+    &&_phone {
+    }
+
+    &&_email {
+    }
+  }
+
+  &__form {
+    background-color : #fff;
+    width            : 430px;
+    padding          : 22px;
+    text-align       : center;
+    float            : left;
+
+    &__title {
+      font-family : @calibri_font;
+      color       : #2ecc71;
+      font-size   : 26px;
+      font-weight : 700;
+      line-height : 42px;
+      text-align  : left;
+    }
+
+    &__submit {
+      width         : 330px;
+      margin-bottom : 17px;
+    }
+
+    &__help-text {
+      font-family   : @calibri_font;
+      color         : #9da5b0;
+      font-size     : 14px;
+      font-weight   : 400;
+      line-height   : 15px;
+      margin-bottom : 22px;
+    }
+
+    &__phone {
+      font-family : @calibri_font;
+      color       : #707a88;
+      font-size   : 30px;
+      font-weight : 400;
+      line-height : 30px;
+    }
+  }
+
+  &__description {
+    font-family      : @calibri_font;
+    background-color : #f4f6f8;
+    width            : 470px;
+    float            : left;
+    padding          : 30px;
+
+    &__title {
+      color          : #2b3c48;
+      font-size      : 30px;
+      font-weight    : 400;
+      letter-spacing : -1.2px;
+      line-height    : 30px;
+      text-align     : left;
+      margin-bottom  : 30px;
+    }
+
+    &__sub-title {
+      color          : #2b3c48;
+      font-size      : 22px;
+      font-weight    : 400;
+      letter-spacing : -0.88px;
+      line-height    : 24px;
+      text-align     : left;
+      margin-bottom  : 19px;
+    }
+
+    &__text {
+      font-family   : @lato_font;
+      color         : #5f656d;
+      font-size     : 17px;
+      font-weight   : 300;
+      line-height   : 23px;
+      text-align    : left;
+      margin-bottom : 27px;
+    }
+
+    &__list {
+      list-style : none;
+      margin     : 0 0 30px 0;
+      padding    : 0;
+
+      &__item {
+        border-bottom : 1px solid #b7b7b7;
+
+        &:last-child {
+          border-bottom : none;
+        }
+
+        &__icon {
+          line-height         : 46px;
+          min-width           : 46px;
+          height              : 46px;
+          float               : left;
+          background-size     : 26px;
+          background-repeat   : no-repeat;
+          background-position : left center;
+        }
+
+        &__key {
+          color          : #2b3c48;
+          font-size      : 17px;
+          font-weight    : 400;
+          letter-spacing : 1.02px;
+          line-height    : 46px;
+          display        : inline-block;
+        }
+
+        &__value {
+          color       : #2ecc71;
+          font-size   : 17px;
+          font-weight : 400;
+          line-height : 46px;
+          display     : inline-block;
+          float       : right;
+        }
+      }
+    }
+
+    &__list-2 {
+      list-style : url("../resources/img/buble.png");
+      margin     : 0 0 26px 0;
+      padding    : 0 0 0 16px;
+
+      &__item {
+        &__value {
+          font-family    : @calibri_font;
+          color          : #5f656d;
+          font-size      : 15px;
+          font-weight    : 700;
+          letter-spacing : 0.9px;
+          line-height    : 26px;
+          text-align     : left;
+        }
+      }
+    }
+  }
+}

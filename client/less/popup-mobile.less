@@ -18,7 +18,7 @@
   bottom        : 125px;
   background    : #fff;
   border-radius : 8px;
-  padding       : 40px;
+  padding       : 48px 40px 40px 40px;
   display       : none;
   z-index       : 2;
 
@@ -37,11 +37,33 @@
     line-height : 74px;
     color       : #2b3c48;
     cursor      : pointer;
+
+    &__label {
+      display : none;
+    }
   }
 
   &__content {
     width    : 100%;
     height   : 100%;
     overflow : auto;
+  }
+
+  &&_success {
+    text-align : center;
+
+    .get-lesson__success {
+      background : none;
+      display    : inline-block;
+    }
+
+    .get-lesson__success__title {
+      font-size   : 42px;
+      line-height : 42px;
+    }
+    .get-lesson__success__text {
+      font-size   : 26px;
+      line-height : 30px;
+    }
   }
 }

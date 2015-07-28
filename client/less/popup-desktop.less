@@ -19,19 +19,36 @@
   display     : none;
   z-index     : 2;
 
+  &__title {
+    display : none;
+  }
+
   &__close-icon {
-    position    : fixed;
-    top         : 50px;
-    right       : 68px;
-    font-size   : 74px;
-    line-height : 74px;
-    color       : #2b3c48;
-    cursor      : pointer;
+    display      : inline-block;
+    position     : absolute;
+    top          : -30px;
+    left         : 0;
+    cursor       : pointer;
+    height       : 23px;
+    background   : transparent url('../resources/img/close-popup_desktop.png') no-repeat left center;
+    font-family  : @calibri_font;
+    color        : rgba(255, 255, 255, 0.5);
+    font-size    : 18px;
+    font-weight  : 700;
+    padding-left : 31px;
+
+    &__label_mobile {
+      display : none;
+    }
   }
 
   &__content {
     width    : 100%;
     height   : 100%;
     overflow : auto;
+  }
+
+  &&_wide {
+    min-width : 900px;
   }
 }

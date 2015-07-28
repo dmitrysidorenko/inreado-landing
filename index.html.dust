@@ -46,7 +46,7 @@
     <h1 class="top__header">{top.header}</h1>
 
     <h2 class="top__sub-header">{top.subHeader}</h2>
-    <button class="btn top__get-lesson-btn" data-open-popup="getLesson">{getLessonBtn}</button>
+    <button class="btn top__get-lesson-btn btn_left-arrow" data-open-popup="getLesson">{getLessonBtn}</button>
     <ul class="top__features-list" data-tabset-element>
         {#features}
             <li class="top__features-list__item" data-tabset-tab="{id}">
@@ -63,14 +63,16 @@
         {#features}
             <ul class="features__list" data-tabset-content="{.id}">
                 {#subFeatures parent=features[$idx]}
-                    <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}">
+                    <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}"
+                        data-popup-mobile="true"
+                        data-show-feature="{parent.id}-{$idx}">
                         <a class="features__list__item__link {.icon}">{.title}</a>
                         <i class="features__list__item__icon-arrow"></i>
                     </li>
                 {/subFeatures}
             </ul>
             {#subFeatures parent=features[$idx]}
-                <div class="features__sub-feature">
+                <div class="features__sub-feature" data-feature="{parent.id}-{$idx}">
                     <div class="sub-feature">
                         <h2 class="sub-feature__sub-title">{.subTitle}</h2>
 
@@ -159,10 +161,12 @@
             <div class="m-scooch-inner feedback__list">
                 <!-- the items -->
                 {#feedback.list}
-                    <div class="m-item m-active feedback__list__item">
-                        <h1 class="feedback__list__item__title">{.title}</h1>
+                    <div class="m-item m-active">
+                        <div class="feedback__list__item">
+                            <h1 class="feedback__list__item__title">{.title}</h1>
 
-                        <div class="feedback__list__item__text">{.text}</div>
+                            <div class="feedback__list__item__text">{.text}</div>
+                        </div>
                     </div>
                 {/feedback.list}
             </div>
@@ -192,16 +196,17 @@
 
 <!--popups-->
 <div class="overlap"></div>
-<div class="popup" data-popup="getLesson">
-    <i class="popup__close-icon" data-action="close">˟</i>
+<div class="popup popup_wide" data-popup="getLesson">
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
 
     <div class="popup__content">
         <h1 class="popup__title">{getLessonForm.title}</h1>
 
         <div class="get-lesson get-lesson_mobile">
-            <form>
+            <form data-form>
                 <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_name" type="text" name="name"
+                    <input class="get-lesson__input get-lesson__input_name" required type="text" name="name"
                            placeholder="{getLessonForm.namePlaceholder}"/>
                 </div>
                 <div class="get-lesson__form-control">
@@ -209,9 +214,10 @@
                            placeholder="{getLessonForm.phonePlaceholder}"/>
                 </div>
                 <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_email" type="email" name="email"
+                    <input class="get-lesson__input get-lesson__input_email" required type="email" name="email"
                            placeholder="{getLessonForm.emailPlaceholder}"/>
                 </div>
+                <button class="btn btn_popup get-lesson-btn-mobile" id="form-submit">{getLessonForm.submitBtn|s}</button>
 
             </form>
         </div>
@@ -220,9 +226,9 @@
             <div class="get-lesson__form">
                 <h1 class="get-lesson__form__title">{getLessonForm.title}</h1>
 
-                <form>
+                <form data-form>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_name" type="text" name="name"
+                        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text" name="name"
                                placeholder="{getLessonForm.namePlaceholder}"/>
                     </div>
                     <div class="get-lesson__form__form-control">
@@ -230,11 +236,11 @@
                                placeholder="{getLessonForm.phonePlaceholder}"/>
                     </div>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_email" type="email" name="email"
+                        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email" name="email"
                                placeholder="{getLessonForm.emailPlaceholder}"/>
                     </div>
 
-                    <button class="btn get-lesson__form__submit">{getLessonForm.desktopSubmitBtn|s}</button>
+                    <button class="btn get-lesson__form__submit btn_left-arrow btn_inverse">{getLessonForm.desktopSubmitBtn|s}</button>
 
                     <div class="get-lesson__form__help-text">{getLessonForm.helpText}</div>
                     <div class="get-lesson__form__phone">{getLessonForm.phone}</div>
@@ -265,12 +271,23 @@
                     {/getLessonDescription.list2}
                 </ul>
 
-                <h2 class="get-lesson__description__sub-sub-title">{getLessonDescription.subSubTitle}</h2>
+                <h2 class="get-lesson__description__text">{getLessonDescription.text2}</h2>
             </div>
 
         </div>
     </div>
-    <button class="btn btn_popup get-lesson-btn-mobile">{getLessonForm.submitBtn|s}</button>
+</div>
+<div class="popup popup_success" data-popup="success">
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
+
+    <div class="popup__content">
+        <div class="get-lesson__success">
+            <div class="get-lesson__success__icon"></div>
+            <div class="get-lesson__success__title">{success.title}</div>
+            <div class="get-lesson__success__text">{success.text}</div>
+        </div>
+    </div>
 </div>
 
     {#features}

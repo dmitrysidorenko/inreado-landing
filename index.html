@@ -51,7 +51,7 @@
     <h1 class="top__header">Обучение никогда не было таким эффективным</h1>
 
     <h2 class="top__sub-header">Платформа для занятий по скайпу</h2>
-    <button class="btn top__get-lesson-btn" data-open-popup="getLesson">Записаться на бесплатный урок</button>
+    <button class="btn top__get-lesson-btn btn_left-arrow" data-open-popup="getLesson">Записаться на бесплатный урок</button>
     <ul class="top__features-list" data-tabset-element>
         
 <li class="top__features-list__item" data-tabset-tab="reading">
@@ -92,26 +92,32 @@
         
 <ul class="features__list" data-tabset-content="reading">
                 
-<li class="features__list__item" data-open-popup="reading" data-popup-options="0">
+<li class="features__list__item" data-open-popup="reading" data-popup-options="0"
+                        data-popup-mobile="true"
+                        data-show-feature="reading-0">
                         <a class="features__list__item__link icon-topics">Адаптированные тексты на различные тематики</a>
                         <i class="features__list__item__icon-arrow"></i>
                     </li>
                 
-<li class="features__list__item" data-open-popup="reading" data-popup-options="1">
+<li class="features__list__item" data-open-popup="reading" data-popup-options="1"
+                        data-popup-mobile="true"
+                        data-show-feature="reading-1">
                         <a class="features__list__item__link icon-adopted">Выбор текстов для изучения по степени узнаваемости</a>
                         <i class="features__list__item__icon-arrow"></i>
                     </li>
                 
-<li class="features__list__item" data-open-popup="reading" data-popup-options="2">
+<li class="features__list__item" data-open-popup="reading" data-popup-options="2"
+                        data-popup-mobile="true"
+                        data-show-feature="reading-2">
                         <a class="features__list__item__link icon-context">Контекстный перевод слов</a>
                         <i class="features__list__item__icon-arrow"></i>
                     </li>
                 
 </ul>
             
-<div class="features__sub-feature">
+<div class="features__sub-feature" data-feature="reading-0">
                     <div class="sub-feature">
-                        <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                        <h2 class="sub-feature__sub-title">Обучающие материалы 0</h2>
 
                         <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 
@@ -119,9 +125,9 @@
                     </div>
                 </div>
             
-<div class="features__sub-feature">
+<div class="features__sub-feature" data-feature="reading-1">
                     <div class="sub-feature">
-                        <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                        <h2 class="sub-feature__sub-title">Обучающие материалы 1</h2>
 
                         <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 
@@ -129,9 +135,9 @@
                     </div>
                 </div>
             
-<div class="features__sub-feature">
+<div class="features__sub-feature" data-feature="reading-2">
                     <div class="sub-feature">
-                        <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                        <h2 class="sub-feature__sub-title">Обучающие материалы 2</h2>
 
                         <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 
@@ -324,22 +330,28 @@
             <div class="m-scooch-inner feedback__list">
                 <!-- the items -->
                 
-<div class="m-item m-active feedback__list__item">
-                        <h1 class="feedback__list__item__title">Ivan</h1>
+<div class="m-item m-active">
+                        <div class="feedback__list__item">
+                            <h1 class="feedback__list__item__title">Ivan</h1>
 
-                        <div class="feedback__list__item__text">Hello! Your website is really good. I subscribed to updates and I&#39;d really like to see more articles to read. Look forward to seeing new content!</div>
+                            <div class="feedback__list__item__text">Hello! Your website is really good. I subscribed to updates and I&#39;d really like to see more articles to read. Look forward to seeing new content!</div>
+                        </div>
                     </div>
                 
-<div class="m-item m-active feedback__list__item">
-                        <h1 class="feedback__list__item__title">Vasiliy</h1>
+<div class="m-item m-active">
+                        <div class="feedback__list__item">
+                            <h1 class="feedback__list__item__title">Vasiliy</h1>
 
-                        <div class="feedback__list__item__text">Awesome app</div>
+                            <div class="feedback__list__item__text">Awesome app</div>
+                        </div>
                     </div>
                 
-<div class="m-item m-active feedback__list__item">
-                        <h1 class="feedback__list__item__title">Chuck Norris</h1>
+<div class="m-item m-active">
+                        <div class="feedback__list__item">
+                            <h1 class="feedback__list__item__title">Chuck Norris</h1>
 
-                        <div class="feedback__list__item__text">I do not always do thins like that. But when I do I do it awesome.</div>
+                            <div class="feedback__list__item__text">I do not always do thins like that. But when I do I do it awesome.</div>
+                        </div>
                     </div>
                 
 </div>
@@ -375,26 +387,28 @@
 
 <!--popups-->
 <div class="overlap"></div>
-<div class="popup" data-popup="getLesson">
-    <i class="popup__close-icon" data-action="close">˟</i>
+<div class="popup popup_wide" data-popup="getLesson">
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">Закрыть</span></i>
 
     <div class="popup__content">
         <h1 class="popup__title">Заявка на бесплатное занятие</h1>
 
         <div class="get-lesson get-lesson_mobile">
-            <form>
+            <form data-form>
                 <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_name" type="text" name="name"
-                           placeholder="ИМЯ И ФАМИЛИЯ"/>
+                    <input class="get-lesson__input get-lesson__input_name" required type="text" name="name"
+                           placeholder="Имя и фамилия"/>
                 </div>
                 <div class="get-lesson__form-control">
                     <input class="get-lesson__input get-lesson__input_phone" type="phone" name="phone"
-                           placeholder="ТЕЛЕФОН"/>
+                           placeholder="Телефон"/>
                 </div>
                 <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_email" type="email" name="email"
-                           placeholder="E-MAIL"/>
+                    <input class="get-lesson__input get-lesson__input_email" required type="email" name="email"
+                           placeholder="E-mail"/>
                 </div>
+                <button class="btn btn_popup get-lesson-btn-mobile" id="form-submit">Записаться на бесплатный урок &rarr;</button>
 
             </form>
         </div>
@@ -403,21 +417,21 @@
             <div class="get-lesson__form">
                 <h1 class="get-lesson__form__title">Заявка на бесплатное занятие</h1>
 
-                <form>
+                <form data-form>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_name" type="text" name="name"
-                               placeholder="ИМЯ И ФАМИЛИЯ"/>
+                        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text" name="name"
+                               placeholder="Имя и фамилия"/>
                     </div>
                     <div class="get-lesson__form__form-control">
                         <input class="get-lesson__form__input get-lesson__form__input_phone" type="phone" name="phone"
-                               placeholder="ТЕЛЕФОН"/>
+                               placeholder="Телефон"/>
                     </div>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_email" type="email" name="email"
-                               placeholder="E-MAIL"/>
+                        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email" name="email"
+                               placeholder="E-mail"/>
                     </div>
 
-                    <button class="btn get-lesson__form__submit">Отправить заявку</button>
+                    <button class="btn get-lesson__form__submit btn_left-arrow btn_inverse">Отправить заявку</button>
 
                     <div class="get-lesson__form__help-text">Возникли вопросы? Желаете записаться напрямую по телефону? Звоните прямо сейчас!</div>
                     <div class="get-lesson__form__phone">+380 67 454 45 45</div>
@@ -429,14 +443,14 @@
                 <ul class="get-lesson__description__list">
                     
 <li class="get-lesson__description__list__item">
-                            <i class="get-lesson__description__list__item__icon "></i>
+                            <i class="get-lesson__description__list__item__icon icon-topics"></i>
 
                             <div class="get-lesson__description__list__item__key">Длительность 1 урока</div>
                             <div class="get-lesson__description__list__item__value">1.5 часа</div>
                         </li>
                     
 <li class="get-lesson__description__list__item">
-                            <i class="get-lesson__description__list__item__icon "></i>
+                            <i class="get-lesson__description__list__item__icon icon-context"></i>
 
                             <div class="get-lesson__description__list__item__key">Стоимость 1 урока</div>
                             <div class="get-lesson__description__list__item__value">Бесплатно</div>
@@ -463,12 +477,23 @@
                     
 </ul>
 
-                <h2 class="get-lesson__description__sub-sub-title">На любой ступени обучения максимум</h2>
+                <h2 class="get-lesson__description__text">На любой ступени обучения максимум</h2>
             </div>
 
         </div>
     </div>
-    <button class="btn btn_popup get-lesson-btn-mobile">Записаться на бесплатный урок &rarr;</button>
+</div>
+<div class="popup popup_success" data-popup="success">
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
+    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">Закрыть</span></i>
+
+    <div class="popup__content">
+        <div class="get-lesson__success">
+            <div class="get-lesson__success__icon"></div>
+            <div class="get-lesson__success__title">Спасибо!</div>
+            <div class="get-lesson__success__text">Ваша заявка успешно отправлена!</div>
+        </div>
+    </div>
 </div>
 
     
@@ -487,7 +512,7 @@
 
                             <div class="sub-feature__icon icon-topics"></div>
 
-                            <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                            <h2 class="sub-feature__sub-title">Обучающие материалы 0</h2>
 
                             <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 
@@ -502,7 +527,7 @@
 
                             <div class="sub-feature__icon icon-adopted"></div>
 
-                            <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                            <h2 class="sub-feature__sub-title">Обучающие материалы 1</h2>
 
                             <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 
@@ -517,7 +542,7 @@
 
                             <div class="sub-feature__icon icon-context"></div>
 
-                            <h2 class="sub-feature__sub-title">Обучающие материалы</h2>
+                            <h2 class="sub-feature__sub-title">Обучающие материалы 2</h2>
 
                             <h3 class="sub-feature__sub-sub-title">На любой ступени обучения максимум внимания на уроке уделяется устной речи</h3>
 

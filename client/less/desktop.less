@@ -196,16 +196,6 @@
   &__get-lesson-btn {
     position : relative;
     outline  : none;
-
-    &::before {
-      content    : '';
-      position   : absolute;
-      left       : -28px;
-      top        : 9px;
-      width      : 17px;
-      height     : 21px;
-      background : transparent url('../resources/img/icon-arrow-new-line.png') no-repeat center center;
-    }
   }
 }
 
@@ -226,6 +216,10 @@
     float   : left;
     width   : 70%;
     padding : 36px 0 22px 42px;
+
+    &.active {
+      display : block;
+    }
   }
 
   &__list {
@@ -238,6 +232,10 @@
 
     &__item {
       position : relative;
+
+      &.active > &__link {
+        color : #36c99e;
+      }
 
       &:last-child {
         border-bottom : none;
@@ -733,6 +731,7 @@
   padding          : 16px 46px;
   border           : none;
   border-radius    : 24px;
+  position         : relative;
 
   &&_popup {
     width         : 100%;
@@ -741,6 +740,19 @@
     bottom        : 0;
     left          : 0;
     right         : 0;
+  }
+
+  &&_left-arrow::before {
+    content    : '';
+    position   : absolute;
+    left       : -28px;
+    top        : 9px;
+    width      : 17px;
+    height     : 21px;
+    background : transparent url('../resources/img/icon-arrow-new-line.png') no-repeat center center;
+  }
+  &&_left-arrow&&_inverse::before {
+    background : transparent url('../resources/img/icon-arrow-new-line_inverse.png') no-repeat center center;
   }
 }
 
