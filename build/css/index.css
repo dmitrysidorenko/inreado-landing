@@ -28,6 +28,33 @@
   text-transform: uppercase;
   color: #aaa;
 }
+.get-lesson__success {
+  background-color: #f4f6f8;
+  max-width: 470px;
+  text-align: center;
+  font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+  padding: 70px;
+}
+.get-lesson__success__icon {
+  height: 47px;
+  background: transparent url("../resources/img/icon-success.png") no-repeat center center;
+  margin-bottom: 15px;
+}
+.get-lesson__success__title {
+  color: #2b3c48;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -1.2px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.get-lesson__success__text {
+  color: #707a88;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  line-height: 24px;
+}
 body .m-scooch-bulleted a {
   background-color: #DCDCDC;
   box-shadow: none;
@@ -76,6 +103,9 @@ h2,
 h3,
 h4 {
   margin: 0;
+}
+a {
+  cursor: pointer;
 }
 @media only screen and (max-width: 1024px), only screen and (max-device-width: 773px) {
   .header {
@@ -623,7 +653,7 @@ h4 {
     bottom: 125px;
     background: #fff;
     border-radius: 8px;
-    padding: 40px;
+    padding: 48px 40px 40px 40px;
     display: none;
     z-index: 2;
   }
@@ -642,10 +672,28 @@ h4 {
     color: #2b3c48;
     cursor: pointer;
   }
+  .popup__close-icon__label {
+    display: none;
+  }
   .popup__content {
     width: 100%;
     height: 100%;
     overflow: auto;
+  }
+  .popup.popup_success {
+    text-align: center;
+  }
+  .popup.popup_success .get-lesson__success {
+    background: none;
+    display: inline-block;
+  }
+  .popup.popup_success .get-lesson__success__title {
+    font-size: 42px;
+    line-height: 42px;
+  }
+  .popup.popup_success .get-lesson__success__text {
+    font-size: 26px;
+    line-height: 30px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -806,6 +854,15 @@ h4 {
     display: block;
   }
   .top__features-list__item__arrow {
+    width: 0;
+    height: 0;
+    border: 8px solid #fff;
+    border-color: transparent transparent #fff transparent;
+    border-width: 0 8px 12px 8px;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    margin-left: -8px;
     display: none;
   }
   .top > .top__get-lesson-btn {
@@ -814,15 +871,6 @@ h4 {
   .top__get-lesson-btn {
     position: relative;
     outline: none;
-  }
-  .top__get-lesson-btn::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 9px;
-    width: 17px;
-    height: 21px;
-    background: transparent url('../resources/img/icon-arrow-new-line.png') no-repeat center center;
   }
   .features {
     padding: 0 38px;
@@ -841,6 +889,9 @@ h4 {
     width: 70%;
     padding: 36px 0 22px 42px;
   }
+  .features__sub-feature.active {
+    display: block;
+  }
   .features__list {
     background-color: #ffffff;
     list-style: none;
@@ -851,6 +902,9 @@ h4 {
   }
   .features__list__item {
     position: relative;
+  }
+  .features__list__item.active > .features__list__item__link {
+    color: #36c99e;
   }
   .features__list__item:last-child {
     border-bottom: none;
@@ -1274,6 +1328,7 @@ h4 {
     padding: 16px 46px;
     border: none;
     border-radius: 24px;
+    position: relative;
   }
   .btn.btn_popup {
     width: 100%;
@@ -1282,6 +1337,18 @@ h4 {
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  .btn.btn_left-arrow::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 9px;
+    width: 17px;
+    height: 21px;
+    background: transparent url('../resources/img/icon-arrow-new-line.png') no-repeat center center;
+  }
+  .btn.btn_left-arrow.btn.btn_inverse::before {
+    background: transparent url('../resources/img/icon-arrow-new-line_inverse.png') no-repeat center center;
   }
   .get-lesson.get-lesson_desktop {
     display: block;
@@ -1309,19 +1376,183 @@ h4 {
     display: none;
     z-index: 2;
   }
+  .popup__title {
+    display: none;
+  }
   .popup__close-icon {
-    position: fixed;
-    top: 50px;
-    right: 68px;
-    font-size: 74px;
-    line-height: 74px;
-    color: #2b3c48;
+    display: inline-block;
+    position: absolute;
+    top: -30px;
+    left: 0;
     cursor: pointer;
+    height: 23px;
+    background: transparent url('../resources/img/close-popup_desktop.png') no-repeat left center;
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 31px;
+  }
+  .popup__close-icon__label_mobile {
+    display: none;
   }
   .popup__content {
     width: 100%;
     height: 100%;
     overflow: auto;
+  }
+  .popup.popup_wide {
+    min-width: 900px;
+  }
+  .get-lesson {
+    display: none;
+    overflow: hidden;
+  }
+  .get-lesson__form__form-control {
+    margin-bottom: 32px;
+  }
+  .get-lesson__form__input {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    border: none;
+    border-bottom: 1px solid #BDC3C6;
+    font-size: 17px;
+    width: 100%;
+    color: #2b3c48;
+    font-weight: 400;
+    line-height: 42px;
+  }
+  .get-lesson__form__input::-moz-placeholder {
+    color: #707a88;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+  .get-lesson__form__input:-moz-placeholder {
+    color: #707a88;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+  .get-lesson__form__input:-ms-input-placeholder {
+    color: #707a88;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+  .get-lesson__form {
+    background-color: #fff;
+    width: 430px;
+    padding: 22px;
+    text-align: center;
+    float: left;
+  }
+  .get-lesson__form__title {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #2ecc71;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: left;
+  }
+  .get-lesson__form__submit {
+    width: 330px;
+    margin-bottom: 17px;
+  }
+  .get-lesson__form__help-text {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #9da5b0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-bottom: 22px;
+  }
+  .get-lesson__form__phone {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #707a88;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  .get-lesson__description {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    background-color: #f4f6f8;
+    width: 470px;
+    float: left;
+    padding: 30px;
+  }
+  .get-lesson__description__title {
+    color: #2b3c48;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -1.2px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .get-lesson__description__sub-title {
+    color: #2b3c48;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.88px;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 19px;
+  }
+  .get-lesson__description__text {
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    color: #5f656d;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 23px;
+    text-align: left;
+    margin-bottom: 27px;
+  }
+  .get-lesson__description__list {
+    list-style: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+  }
+  .get-lesson__description__list__item {
+    border-bottom: 1px solid #b7b7b7;
+  }
+  .get-lesson__description__list__item:last-child {
+    border-bottom: none;
+  }
+  .get-lesson__description__list__item__icon {
+    line-height: 46px;
+    min-width: 46px;
+    height: 46px;
+    float: left;
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+  .get-lesson__description__list__item__key {
+    color: #2b3c48;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 1.02px;
+    line-height: 46px;
+    display: inline-block;
+  }
+  .get-lesson__description__list__item__value {
+    color: #2ecc71;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 46px;
+    display: inline-block;
+    float: right;
+  }
+  .get-lesson__description__list-2 {
+    list-style: url("../resources/img/buble.png");
+    margin: 0 0 26px 0;
+    padding: 0 0 0 16px;
+  }
+  .get-lesson__description__list-2__item__value {
+    font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
+    color: #5f656d;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    line-height: 26px;
+    text-align: left;
   }
 }
 
