@@ -38,13 +38,57 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            css_scooch: {
-                src: 'bower_components/scooch/build/scooch.min.css',
-                dest: 'client/css/scooch.min.css'
+            js_jq: {
+                src: 'bower_components/jquery/dist/jquery.min.js',
+                dest: 'build/js/tmp/0.js'
             },
-            css_scooch_style: {
-                src: 'bower_components/scooch/build/scooch-style.min.css',
-                dest: 'client/css/scooch-style.min.css'
+            js_ng: {
+                src: 'bower_components/angular/angular.min.js',
+                dest: 'build/js/tmp/1.js'
+            },
+            js_bootstrap: {
+                src: 'bower_components/angular-bootstrap/ui-bootstrap.min.js',
+                dest: 'build/js/tmp/2.js'
+            },
+            js_bootstrap_tpls: {
+                src: 'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                dest: 'build/js/tmp/3.js'
+            },
+            js_ng_sanitize: {
+                src: 'bower_components/angular-sanitize/angular-sanitize.min.js',
+                dest: 'build/js/tmp/4.js'
+            },
+            js_ng_animate: {
+                src: 'bower_components/angular-animate/angular-animate.js',
+                dest: 'build/js/tmp/5.js'
+            },
+            js_ng_ui_router: {
+                src: 'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+                dest: 'build/js/tmp/6.js'
+            },
+            js_ng_carousel: {
+                src: 'bower_components/angular-carousel/dist/angular-carousel.min.js',
+                dest: 'build/js/tmp/7.js'
+            },
+            js_ng_touch: {
+                src: 'bower_components/angular-touch/angular-touch.min.js',
+                dest: 'build/js/tmp/8.js'
+            },
+            js_ng_swipe: {
+                src: 'bower_components/angular-swipe/dist/angular-swipe.min.js',
+                dest: 'build/js/tmp/9.js'
+            },
+            js_data: {
+                src: 'client/js/data.js',
+                dest: 'build/js/tmp/10.js'
+            },
+            js_app: {
+                src: 'client/js/app.js',
+                dest: 'build/js/tmp/11.js'
+            },
+            js_particles: {
+                src: 'client/js/particles.js',
+                dest: 'build/js/tmp/12.js'
             },
             resources_img_dist: {
                 src: 'client/resources/img/*',
@@ -70,14 +114,6 @@ module.exports = function (grunt) {
                 flatten: true,
                 filter: 'isFile',
                 expand: true
-            },
-            js_zepto: {
-                src: 'bower_components/zepto/zepto.min.js',
-                dest: 'build/js/tmp/1.js'
-            },
-            js_scooch: {
-                src: 'bower_components/scooch/build/scooch.min.js',
-                dest: 'build/js/tmp/2.js'
             }
         },
         clean: ['build/js/tmp'],
@@ -116,13 +152,13 @@ module.exports = function (grunt) {
     /*grunt.loadNpmTasks('grunt-ssh-deploy');*/
 
 // HTMl distribution task
-    grunt.registerTask('dist-html', ['dusthtml:dist']);
+    grunt.registerTask('dist-html', ['copy:index_html_dist']);
 
 // JS distribution task
-    grunt.registerTask('dist-js', ['copy:js_zepto', 'copy:js_scooch', 'copy:js', 'concat:js']);
+    grunt.registerTask('dist-js', ['copy:js_jq', 'copy:js_ng', 'copy:js_bootstrap', 'copy:js_bootstrap_tpls', 'copy:js_ng_sanitize', 'copy:js_ng_animate', 'copy:js_ng_ui_router', 'copy:js_ng_carousel', 'copy:js_ng_touch', 'copy:js_ng_swipe', 'copy:js_data', 'copy:js_app', 'copy:js_particles', 'concat:js']);
 
 // CSS distribution task
-    grunt.registerTask('dist-css', ['less:compile', 'copy:css_scooch', 'copy:css_scooch_style', 'concat:css']);
+    grunt.registerTask('dist-css', ['less:compile', 'concat:css']);
     grunt.registerTask('dist-resources', ['copy:resources_img_dist', 'copy:resources_fonts_dist']);
 
 // build tasks
