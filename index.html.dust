@@ -12,112 +12,115 @@
         <link rel="stylesheet" href="bower_components/scooch/build/scooch-style.min.css"/>
         <link rel="stylesheet" href="client/css/index.css"/>
         <script src="bower_components/zepto/zepto.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/scooch/build/scooch.min.js"></script>
-        <script src="client/js/tabset.js"></script>
-        <script src="client/js/index.js"></script>
+        {!<script src="client/js/tabset.js"></script>!}
+        <script src="client/js/data.js"></script>
+        <script src="client/js/app.js"></script>
     {/isProduction}
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700italic,900italic' rel='stylesheet'
           type='text/css'>
 </head>
-<body>
+<body ng-app="app" ng-controller="app">
 
 <header class="header">
-    <div class="header__content">
-        <a class="header__menu-icon"></a>
-        <a class="header__logo"><span>{header.title[0]}</span><span>{header.title[1]}</span><span
-                class="header__logo__beta">{header.subTitle}</span></a>
+<div class="header__content">
+    <a class="header__menu-icon"></a>
+    <a class="header__logo"><span>{header.title[0]}</span><span>{header.title[1]}</span><span
+            class="header__logo__beta">{header.subTitle}</span></a>
 
-        <div class="header__menu">
-            <ul class="header__menu__list">
-                {#header.menu.items}
-                    <li class="header__menu__list__item">
-                        <a class="header__menu__list__item__link" href="{.href}">{.text}</a>
-                    </li>
-                {/header.menu.items}
-                <li class="header__menu__list__item">
-                    <a class="header__menu__list__item__link" data-open-popup="getLesson">Бесплатное занятие</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="header__menu">
+<ul class="header__menu__list">
+<li class="header__menu__list__item"
+    ng-repeat="item in header.menu.items">
+        <a class="header__menu__list__item__link" ng-href="item.href">{{::item.text}}</a>
+</li>
+    <li class="header__menu__list__item">
+        <a class="header__menu__list__item__link" data-open-popup="getLesson">Бесплатное занятие</a>
+    </li>
+</ul>
+</div>
+</div>
 </header>
 
 <section class="top" id="{top.id}">
-    <h1 class="top__header">{top.header}</h1>
+<h1 class="top__header">{top.header}</h1>
 
     <h2 class="top__sub-header">{top.subHeader}</h2>
     <button class="btn top__get-lesson-btn btn_left-arrow" data-open-popup="getLesson">{getLessonBtn}</button>
-    <ul class="top__features-list" data-tabset-element>
-        {#features}
-            <li class="top__features-list__item" data-tabset-tab="{id}">
-                <a class="top__features-list__item__link {.icon}">{title}
-                    <span class="top__features-list__item__link__subname">{subTitle}</span></a>
-                <span class="top__features-list__item__arrow"></span>
-            </li>
-        {/features}
-    </ul>
+<ul class="top__features-list" data-tabset-element>
+{#features}
+        <li class="top__features-list__item"
+            ng-repeat="f in features"
+        ng-class="{'m-active': selectedTabIndex === f.id}">
+    <a class="top__features-list__item__link {.icon}">{title}
+        <span class="top__features-list__item__link__subname">{subTitle}</span></a>
+    <span class="top__features-list__item__arrow"></span>
+</li>
+{/features}
+</ul>
 </section>
 
 <section class="features">
-    <div class="features__content">
-        {#features}
-            <ul class="features__list" data-tabset-content="{.id}">
-                {#subFeatures parent=features[$idx]}
-                    <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}"
-                        data-popup-mobile="true"
-                        data-show-feature="{parent.id}-{$idx}">
-                        <a class="features__list__item__link {.icon}">{.title}</a>
-                        <i class="features__list__item__icon-arrow"></i>
-                    </li>
-                {/subFeatures}
-            </ul>
-            {#subFeatures parent=features[$idx]}
-                <div class="features__sub-feature" data-feature="{parent.id}-{$idx}">
-                    <div class="sub-feature">
-                        <h2 class="sub-feature__sub-title">{.subTitle}</h2>
+<div class="features__content">
+{#features}
+<ul class="features__list" data-tabset-content="{.id}">
+{#subFeatures parent=features[$idx]}
+        <li class="features__list__item" data-open-popup="{parent.id}" data-popup-options="{$idx}"
+            data-popup-mobile="true"
+            data-show-feature="{parent.id}-{$idx}">
+        <a class="features__list__item__link {.icon}">{.title}</a>
+    <i class="features__list__item__icon-arrow"></i>
+</li>
+{/subFeatures}
+</ul>
+{#subFeatures parent=features[$idx]}
+<div class="features__sub-feature" data-feature="{parent.id}-{$idx}">
+<div class="sub-feature">
+    <h2 class="sub-feature__sub-title">{.subTitle}</h2>
 
-                        <h3 class="sub-feature__sub-sub-title">{.subSubTitle}</h3>
+<h3 class="sub-feature__sub-sub-title">{.subSubTitle}</h3>
 
-                        <div class="sub-feature__text">{.text}</div>
-                    </div>
-                </div>
-            {/subFeatures}
-        {/features}
-    </div>
+    <div class="sub-feature__text">{.text}</div>
+</div>
+</div>
+{/subFeatures}
+{/features}
+</div>
 </section>
 
 <section class="advantages" id="{advantages.id}">
-    <div class="advantages__content">
-        <div class="advantages__header-container">
-            <i class="advantages__icon"></i>
-            <header class="advantages__header">{advantages.header}</header>
+<div class="advantages__content">
+<div class="advantages__header-container">
+    <i class="advantages__icon"></i>
+<header class="advantages__header">{advantages.header}</header>
+</div>
+    <h2 class="advantages__sub-header">{advantages.subHeader}</h2>
+<ul class="advantages__list">
+{#advantages.list}
+<li class="advantages__list__item">
+        <i class="advantages__list__item__icon {.icon}"></i>
+
+    <div class="advantages__list__item__content">
+
+        <h3 class="advantages__list__item__title">{.title}</h3>
+
+        <div class="advantages__list__item__text">{.text}</div>
+
+        <div class="advantages__list__item__bottom">
+
         </div>
-        <h2 class="advantages__sub-header">{advantages.subHeader}</h2>
-        <ul class="advantages__list">
-            {#advantages.list}
-                <li class="advantages__list__item">
-                    <i class="advantages__list__item__icon {.icon}"></i>
-
-                    <div class="advantages__list__item__content">
-
-                        <h3 class="advantages__list__item__title">{.title}</h3>
-
-                        <div class="advantages__list__item__text">{.text}</div>
-
-                        <div class="advantages__list__item__bottom">
-
-                        </div>
-                    </div>
-                    {@sep}
-                        <div class="advantages__list__item__delimeter"></div>
-                    {/sep}
-                </li>
-            {/advantages.list}
-        </ul>
     </div>
-</section>
+{@sep}
+    <div class="advantages__list__item__delimeter"></div>
+{/sep}
+    </li>
+    {/advantages.list}
+    </ul>
+    </div>
+    </section>
 
-<section class="pricing" id="{pricing.id}">
+    <section class="pricing" id="{pricing.id}">
     <div class="pricing__content">
         <div class="pricing__header-container">
             <i class="pricing__icon"></i>
@@ -125,161 +128,164 @@
             <h1 class="pricing__header">{pricing.header}</h1>
         </div>
 
-        <h2 class="pricing__sub-header">{pricing.subHeader}</h2>
+    <h2 class="pricing__sub-header">{pricing.subHeader}</h2>
 
-        <ul class="pricing__list">
-            {#pricing.list}
-                <li class="pricing__list__item">
-                    <i class="pricing__list__item__icon {.icon}"></i>
+    <ul class="pricing__list">
+    {#pricing.list}
+    <li class="pricing__list__item">
+        <i class="pricing__list__item__icon {.icon}"></i>
 
-                    <h3 class="pricing__list__item__title">{.title}</h3>
+    <h3 class="pricing__list__item__title">{.title}</h3>
 
-                    <div class="pricing__list__item__text">{.text}</div>
-                </li>
-            {/pricing.list}
-        </ul>
-        <div class="pricing__big-price">
-            <div class="pricing__big-price__left">
-                <span class="pricing__big-price__amount">{pricing.bigPrice.amount}</span>
-            </div>
-            <div class="pricing__big-price__right">
-                <span class="pricing__big-price__currency">{pricing.bigPrice.currency}</span>
-                <span class="pricing__big-price__period">{pricing.bigPrice.period}</span>
-            </div>
+        <div class="pricing__list__item__text">{.text}</div>
+    </li>
+    {/pricing.list}
+    </ul>
+    <div class="pricing__big-price">
+        <div class="pricing__big-price__left">
+            <span class="pricing__big-price__amount">{pricing.bigPrice.amount}</span>
         </div>
+    <div class="pricing__big-price__right">
+    <span class="pricing__big-price__currency">{pricing.bigPrice.currency}</span>
+        <span class="pricing__big-price__period">{pricing.bigPrice.period}</span>
+    </div>
+    </div>
 
         <button class="btn pricing__btn" data-open-popup="getLesson">{getLessonBtn}</button>
     </div>
-</section>
+    </section>
 
-<section class="feedback">
+    <section class="feedback">
     <div class="feedback__content">
-        <div id="{feedback.id}" class="m-scooch m-fluid">
-            <a class="feedback__next" href="#" data-m-slide="next"></a>
-            <a class="feedback__prev" href="#" data-m-slide="prev"></a>
-            <!-- the slider -->
-            <div class="m-scooch-inner feedback__list">
-                <!-- the items -->
-                {#feedback.list}
-                    <div class="m-item m-active">
-                        <div class="feedback__list__item">
-                            <h1 class="feedback__list__item__title">{.title}</h1>
+            <div id="{feedback.id}" class="m-scooch m-fluid">
+        <a class="feedback__next" href="#" data-m-slide="next"></a>
+        <a class="feedback__prev" href="#" data-m-slide="prev"></a>
+        <!-- the slider -->
+    <div class="m-scooch-inner feedback__list">
+        <!-- the items -->
+    {#feedback.list}
+    <div class="m-item m-active">
+    <div class="feedback__list__item">
+        <h1 class="feedback__list__item__title">{.title}</h1>
 
-                            <div class="feedback__list__item__text">{.text}</div>
-                        </div>
-                    </div>
-                {/feedback.list}
-            </div>
-            <!-- the controls -->
-            <div class="m-scooch-controls m-scooch-bulleted">
-                {#feedback.list}
-                    <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
-                       class="{@first}m-active{/first}">{$idx}</a>
-                {/feedback.list}
-            </div>
+    <div class="feedback__list__item__text">{.text}</div>
+    </div>
+    </div>
+    {/feedback.list}
+    </div>
+        <!-- the controls -->
+    <div class="m-scooch-controls m-scooch-bulleted">
+    {#feedback.list}
+            <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
+               class="{@first}m-active{/first}">{$idx}</a>
+    {/feedback.list}
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="logo">
+            <span class="logo__in">IN</span>READO<span class="logo__beta">beta</span>
         </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="logo">
-        <span class="logo__in">IN</span>READO<span class="logo__beta">beta</span>
-    </div>
     <div class="footer__info">
-        <div class="footer__info__contacts">Contact us via e-mail <a class="footer__info__email"
-                                                                     href="mailto:{legals.email}"
-                                                                     target="_blank">{legals.email}</a>
-        </div>
+    <div class="footer__info__contacts">Contact us via e-mail <a class="footer__info__email"
+                                                                 href="mailto:{legals.email}"
+                                                                 target="_blank">{legals.email}</a>
+    </div>
         <div class="footer__info__legals">© {legals.year} {legals.website}. All rights reserved.</div>
     </div>
-</footer>
+    </footer>
 
-<!--popups-->
-<div class="overlap"></div>
-<div class="popup popup_wide" data-popup="getLesson">
-    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
-    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
+    <!--popups-->
+    <div class="overlap"></div>
+    <div class="popup popup_wide" data-popup="getLesson">
+        <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
+        <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
 
     <div class="popup__content">
-        <h1 class="popup__title">{getLessonForm.title}</h1>
+    <h1 class="popup__title">{getLessonForm.title}</h1>
 
-        <div class="get-lesson get-lesson_mobile">
-            <form data-form>
-                <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_name" required type="text" name="name"
-                           placeholder="{getLessonForm.namePlaceholder}"/>
-                </div>
-                <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_phone" type="phone" name="phone"
-                           placeholder="{getLessonForm.phonePlaceholder}"/>
-                </div>
-                <div class="get-lesson__form-control">
-                    <input class="get-lesson__input get-lesson__input_email" required type="email" name="email"
-                           placeholder="{getLessonForm.emailPlaceholder}"/>
-                </div>
-                <button class="btn btn_popup get-lesson-btn-mobile" id="form-submit">{getLessonForm.submitBtn|s}</button>
-
-            </form>
+    <div class="get-lesson get-lesson_mobile">
+    <form data-form>
+        <div class="get-lesson__form-control">
+            <input class="get-lesson__input get-lesson__input_name" required type="text" name="name"
+                   placeholder="{getLessonForm.namePlaceholder}"/>
         </div>
-
-        <div class="get-lesson get-lesson_desktop">
-            <div class="get-lesson__form">
-                <h1 class="get-lesson__form__title">{getLessonForm.title}</h1>
-
-                <form data-form>
-                    <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text" name="name"
-                               placeholder="{getLessonForm.namePlaceholder}"/>
-                    </div>
-                    <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_phone" type="phone" name="phone"
-                               placeholder="{getLessonForm.phonePlaceholder}"/>
-                    </div>
-                    <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email" name="email"
-                               placeholder="{getLessonForm.emailPlaceholder}"/>
-                    </div>
-
-                    <button class="btn get-lesson__form__submit btn_left-arrow btn_inverse">{getLessonForm.desktopSubmitBtn|s}</button>
-
-                    <div class="get-lesson__form__help-text">{getLessonForm.helpText}</div>
-                    <div class="get-lesson__form__phone">{getLessonForm.phone}</div>
-                </form>
-            </div>
-            <div class="get-lesson__description">
-                <h1 class="get-lesson__description__title">{getLessonDescription.title}</h1>
-
-                <ul class="get-lesson__description__list">
-                    {#getLessonDescription.list}
-                        <li class="get-lesson__description__list__item">
-                            <i class="get-lesson__description__list__item__icon {.icon}"></i>
-
-                            <div class="get-lesson__description__list__item__key">{.key}</div>
-                            <div class="get-lesson__description__list__item__value">{.value}</div>
-                        </li>
-                    {/getLessonDescription.list}
-                </ul>
-                <h2 class="get-lesson__description__sub-title">{getLessonDescription.subTitle}</h2>
-
-                <div class="get-lesson__description__text">{getLessonDescription.text}</div>
-
-                <ul class="get-lesson__description__list-2">
-                    {#getLessonDescription.list2}
-                        <li class="get-lesson__description__list-2__item">
-                            <div class="get-lesson__description__list-2__item__value">{.}</div>
-                        </li>
-                    {/getLessonDescription.list2}
-                </ul>
-
-                <h2 class="get-lesson__description__text">{getLessonDescription.text2}</h2>
-            </div>
-
+        <div class="get-lesson__form-control">
+            <input class="get-lesson__input get-lesson__input_phone" type="phone" name="phone"
+                   placeholder="{getLessonForm.phonePlaceholder}"/>
         </div>
+        <div class="get-lesson__form-control">
+            <input class="get-lesson__input get-lesson__input_email" required type="email" name="email"
+                   placeholder="{getLessonForm.emailPlaceholder}"/>
+        </div>
+    <button class="btn btn_popup get-lesson-btn-mobile"
+            id="form-submit">{getLessonForm.submitBtn|s}</button>
+
+</form>
+</div>
+
+<div class="get-lesson get-lesson_desktop">
+<div class="get-lesson__form">
+    <h1 class="get-lesson__form__title">{getLessonForm.title}</h1>
+
+<form data-form>
+    <div class="get-lesson__form__form-control">
+        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text"
+               name="name"
+               placeholder="{getLessonForm.namePlaceholder}"/>
     </div>
+<div class="get-lesson__form__form-control">
+        <input class="get-lesson__form__input get-lesson__form__input_phone" type="phone" name="phone"
+        placeholder="{getLessonForm.phonePlaceholder}"/>
+</div>
+    <div class="get-lesson__form__form-control">
+        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email"
+               name="email"
+               placeholder="{getLessonForm.emailPlaceholder}"/>
+    </div>
+
+    <button class="btn get-lesson__form__submit btn_left-arrow btn_inverse">{getLessonForm.desktopSubmitBtn|s}</button>
+
+<div class="get-lesson__form__help-text">{getLessonForm.helpText}</div>
+    <div class="get-lesson__form__phone">{getLessonForm.phone}</div>
+</form>
+</div>
+<div class="get-lesson__description">
+    <h1 class="get-lesson__description__title">{getLessonDescription.title}</h1>
+
+<ul class="get-lesson__description__list">
+{#getLessonDescription.list}
+    <li class="get-lesson__description__list__item">
+        <i class="get-lesson__description__list__item__icon {.icon}"></i>
+
+        <div class="get-lesson__description__list__item__key">{.key}</div>
+        <div class="get-lesson__description__list__item__value">{.value}</div>
+    </li>
+{/getLessonDescription.list}
+</ul>
+    <h2 class="get-lesson__description__sub-title">{getLessonDescription.subTitle}</h2>
+
+    <div class="get-lesson__description__text">{getLessonDescription.text}</div>
+
+<ul class="get-lesson__description__list-2">
+{#getLessonDescription.list2}
+    <li class="get-lesson__description__list-2__item">
+        <div class="get-lesson__description__list-2__item__value">{.}</div>
+    </li>
+{/getLessonDescription.list2}
+</ul>
+
+    <h2 class="get-lesson__description__text">{getLessonDescription.text2}</h2>
+</div>
+
+</div>
+</div>
 </div>
 <div class="popup popup_success" data-popup="success">
     <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label_mobile">˟</span></i>
-    <i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
+<i class="popup__close-icon" data-action="close"><span class="popup__close-icon__label">{popupCloseLabel}</span></i>
 
     <div class="popup__content">
         <div class="get-lesson__success">
@@ -290,41 +296,41 @@
     </div>
 </div>
 
-    {#features}
-    <div class="popup" data-popup="{.id}">
-        <i class="popup__close-icon" data-action="close">˟</i>
+{#features}
+        <div class="popup" data-popup="{.id}">
+    <i class="popup__close-icon" data-action="close">˟</i>
 
-        <div class="m-scooch m-fluid" style="height: 100%;">
-            <!-- the slider -->
-            <div class="m-scooch-inner" style="height: 100%;">
-                <!-- the items -->
-                {#subFeatures}
-                    <div class="popup__content">
+<div class="m-scooch m-fluid" style="height: 100%;">
+    <!-- the slider -->
+<div class="m-scooch-inner" style="height: 100%;">
+    <!-- the items -->
+{#subFeatures}
+<div class="popup__content">
 
-                        <div class="sub-feature">
-                            <h1 class="sub-feature__title">{.title}</h1>
+<div class="sub-feature">
+    <h1 class="sub-feature__title">{.title}</h1>
 
-                            <div class="sub-feature__icon {.icon}"></div>
+    <div class="sub-feature__icon {.icon}"></div>
 
-                            <h2 class="sub-feature__sub-title">{.subTitle}</h2>
+<h2 class="sub-feature__sub-title">{.subTitle}</h2>
 
-                            <h3 class="sub-feature__sub-sub-title">{.subSubTitle}</h3>
+    <h3 class="sub-feature__sub-sub-title">{.subSubTitle}</h3>
 
-                            <div class="sub-feature__text">{.text}</div>
-                        </div>
-                    </div>
-                {/subFeatures}
-            </div>
-            <!-- the controls -->
-            <div class="m-scooch-controls m-scooch-bulleted" style="position: fixed;bottom: 96px;left: 0;right: 0;">
-                {#.subFeatures}
-                    <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
-                       class="{@first}m-active{/first}">{$idx}</a>
-                {/.subFeatures}
-            </div>
-        </div>
-        <button class="btn btn_popup" data-open-popup="getLesson">{getLessonForm.submitBtn|s}</button>
-    </div>
+    <div class="sub-feature__text">{.text}</div>
+</div>
+</div>
+{/subFeatures}
+</div>
+    <!-- the controls -->
+<div class="m-scooch-controls m-scooch-bulleted" style="position: fixed;bottom: 96px;left: 0;right: 0;">
+{#.subFeatures}
+        <a href="#" data-m-slide="{@math key=$idx method="add" operand="1"/}"
+        class="{@first}m-active{/first}">{$idx}</a>
+{/.subFeatures}
+</div>
+</div>
+<button class="btn btn_popup" data-open-popup="getLesson">{getLessonForm.submitBtn|s}</button>
+</div>
     {/features}
 </body>
 </html>

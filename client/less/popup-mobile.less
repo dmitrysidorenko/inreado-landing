@@ -1,26 +1,29 @@
-.overlap {
-  position   : fixed;
-  background : #000;
-  opacity    : 0.8;
-  top        : 0;
-  left       : 0;
-  bottom     : 0;
-  right      : 0;
-  display    : none;
-  z-index    : 2;
+.modal-dialog.modal-mobile {
+  width  : 90%;
+  margin : 0 auto;
+  height : 100%;
+
+  .modal-content {
+    position : absolute;
+    top      : 30px;
+    left     : 0;
+    right    : 0;
+    bottom   : 125px;
+  }
 }
 
 .popup {
-  position      : fixed;
-  top           : 40px;
-  left          : 40px;
-  right         : 40px;
-  bottom        : 125px;
+  //  position      : fixed;
+  //  top           : 40px;
+  //  left          : 40px;
+  //  right         : 40px;
+  //  bottom        : 125px;
   background    : #fff;
   border-radius : 8px;
-  padding       : 48px 40px 40px 40px;
-  display       : none;
+  //  display       : none;
   z-index       : 2;
+  height        : 100%;
+  overflow      : auto;
 
   &__title {
     margin-bottom : 60px;
@@ -30,9 +33,9 @@
   }
 
   &__close-icon {
-    position    : fixed;
-    top         : 50px;
-    right       : 68px;
+    position    : absolute;
+    top         : 10px;
+    right       : 30px;
     font-size   : 74px;
     line-height : 74px;
     color       : #2b3c48;
@@ -46,7 +49,8 @@
   &__content {
     width    : 100%;
     height   : 100%;
-    overflow : auto;
+//    overflow : auto;
+    padding  : 48px 40px 40px 40px;
   }
 
   &&_success {

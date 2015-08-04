@@ -3,6 +3,7 @@
   position    : absolute;
   width       : 100%;
   padding-top : 52px;
+  z-index     : 3;
 
   &__menu-icon {
     background : transparent url('../resources/img/Hamburger%2050px.png') no-repeat center center;
@@ -36,7 +37,6 @@
 
   &__menu {
     display : none;
-    gi
     &__list {
       list-style : none;
       padding    : 0;
@@ -49,10 +49,16 @@
 }
 
 .top {
-  background : url('../resources/img/bg_main.png');
+  background : #323840;
   text-align : center;
   padding    : 189px 10px 0 10px;
   font-size  : 0;
+  z-index    : 1;
+  position   : relative;
+  user-select         : none;
+  -moz-user-select    : none;
+  -ms-user-select     : none;
+  -webkit-user-select : none;
 
   &__header {
     font-family   : Calibri, Helvetica Neue, Helvetica, Arial, serif;
@@ -62,6 +68,7 @@
     line-height   : 50px;
     text-align    : center;
     margin-bottom : 53px;
+    z-index       : 2;
   }
 
   &__sub-header {
@@ -72,6 +79,7 @@
     line-height   : 30px;
     text-align    : center;
     margin-bottom : 69px;
+    z-index       : 2;
   }
 
   &__features-list {
@@ -81,11 +89,13 @@
     white-space : nowrap;
     overflow    : hidden;
     display     : block;
+    z-index     : 2;
 
     &__item {
       display      : inline-block;
       margin-right : 60px;
       position     : relative;
+      z-index      : 3;
 
       &.m-active > &__arrow {
         display : inline-block;
@@ -147,10 +157,23 @@
       }
     }
   }
+
+  &__get-lesson-btn {
+    z-index : 3;
+  }
+
+  .particles-js-canvas-el {
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    bottom   : 0;
+    right    : 0;
+    z-index  : -1;
+  }
 }
 
 .features {
-  padding : 0 38px;
+  padding             : 0 38px;
 
   &__sub-feature {
     display : none;
@@ -192,6 +215,16 @@
         margin-top : -14px;
         background : transparent url('../resources/img/arrow-right.png') no-repeat center center;
       }
+    }
+  }
+
+  &__content {
+    transition : max-height 1s;
+    overflow   : hidden;
+    max-height : 350px;
+
+    &.ng-hide {
+      max-height : 0;
     }
   }
 }
@@ -594,6 +627,7 @@
   padding          : 25px 35px;
   border           : none;
   border-radius    : 43px;
+  outline          : none;
 
   &&_popup {
     width         : 100%;
@@ -611,4 +645,97 @@
 
 .get-lesson-btn-mobile {
   display : inline-block;
+}
+
+.dap-carousel {
+  position : relative;
+  user-select         : none;
+  -moz-user-select    : none;
+  -ms-user-select     : none;
+  -webkit-user-select : none;
+
+  &__slide {
+    position           : relative;
+    display            : none;
+    -webkit-transition : .6s ease-in-out left;
+    -o-transition      : .6s ease-in-out left;
+    transition         : .6s ease-in-out left;
+  }
+
+  .carousel-inner {
+    position : relative;
+    width    : 100%;
+    overflow : hidden;
+  }
+
+  .carousel-control {
+    position    : absolute;
+    top         : 0;
+    bottom      : 0;
+    left        : 0;
+    width       : 15%;
+    font-size   : 20px;
+    color       : #fff;
+    text-align  : center;
+    text-shadow : 0 1px 2px rgba(0, 0, 0, .6);
+    filter      : alpha(opacity=50);
+    opacity     : .5;
+  }
+
+  .carousel-control.left {
+    background-image  : none;
+    filter            : none;
+    background-repeat : repeat-x;
+    & > span::before {
+      content    : '';
+      background : transparent url('../resources/img/arrow-left.png') no-repeat center center;
+      width      : 24px;
+      height     : 24px;
+      display    : block;
+    }
+  }
+
+  .carousel-control.right {
+    right             : 0;
+    left              : auto;
+    background-image  : none;
+    filter            : none;
+    background-repeat : repeat-x;
+    & > span::before {
+      content    : '';
+      background : transparent url('../resources/img/arrow-right.png') no-repeat center center;
+      width      : 24px;
+      height     : 24px;
+      display    : block;
+    }
+  }
+
+  .carousel-indicators {
+    position     : absolute;
+    bottom       : -30px;
+    left         : 50%;
+    z-index      : 15;
+    width        : 60%;
+    margin-left  : -30%;
+    padding-left : 0;
+    list-style   : none;
+    text-align   : center;
+
+    li {
+      display          : inline-block;
+      width            : 12px;
+      height           : 12px;
+      margin           : 0 10px;
+      text-indent      : -999px;
+      border           : 0 solid #b7b7b7;
+      border-radius    : 12px;
+      cursor           : pointer;
+      background-color : #dedede;
+      background-color : rgba(222, 222, 222, 1);
+
+      &.active {
+        background-color : #36c99e;
+      }
+    }
+  }
 }

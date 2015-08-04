@@ -13,6 +13,10 @@ module.exports = function (grunt) {
             less: {
                 files: 'client/**/*.less',
                 tasks: ['less:compile']
+            },
+            tmp: {
+                files: 'index.html.dust',
+                tasks: ['dusthtml:dev']
             }
         },
         githooks: {

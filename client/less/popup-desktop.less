@@ -1,23 +1,22 @@
-.overlap {
-  position   : fixed;
-  background : #000;
-  opacity    : 0.8;
-  top        : 0;
-  left       : 0;
-  bottom     : 0;
-  right      : 0;
-  display    : none;
-  z-index    : 2;
+.modal-dialog.modal-mobile {
+  width  : 900px;
+  height : auto;
+
+  .modal-content {
+    background-color   : transparent;
+    -webkit-box-shadow : none;
+    box-shadow         : none;
+    border             : none;
+  }
+
+  &&.success {
+    width : 470px;
+  }
 }
 
 .popup {
-  position    : fixed;
-  top         : 50%;
-  margin-top  : -295px;
-  left        : 50%;
-  margin-left : -450px;
-  display     : none;
-  z-index     : 2;
+  z-index  : 2;
+  position : relative;
 
   &__title {
     display : none;

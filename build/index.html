@@ -11,7 +11,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700italic,900italic' rel='stylesheet'
           type='text/css'>
 </head>
-<body>
+<body ng-app="app" ng-controller="app">
 
 <header class="header">
     <div class="header__content">
@@ -49,31 +49,36 @@
     <button class="btn top__get-lesson-btn btn_left-arrow" data-open-popup="getLesson">Записаться на бесплатный урок</button>
     <ul class="top__features-list" data-tabset-element>
         
-<li class="top__features-list__item" data-tabset-tab="reading">
+<li class="top__features-list__item" data-tabset-tab="reading"
+                ng-class="{'m-active': selectedTabIndex === 0}">
                 <a class="top__features-list__item__link top__features-list__item__link_reading">Развитие навыков
 <span class="top__features-list__item__link__subname">чтения</span></a>
                 <span class="top__features-list__item__arrow"></span>
             </li>
         
-<li class="top__features-list__item" data-tabset-tab="listening">
+<li class="top__features-list__item" data-tabset-tab="listening"
+                ng-class="{'m-active': selectedTabIndex === 1}">
                 <a class="top__features-list__item__link top__features-list__item__link_listening">Программные
 <span class="top__features-list__item__link__subname">инструменты</span></a>
                 <span class="top__features-list__item__arrow"></span>
             </li>
         
-<li class="top__features-list__item" data-tabset-tab="communication">
+<li class="top__features-list__item" data-tabset-tab="communication"
+                ng-class="{'m-active': selectedTabIndex === 2}">
                 <a class="top__features-list__item__link top__features-list__item__link_communication">Озвучка
 <span class="top__features-list__item__link__subname">материала</span></a>
                 <span class="top__features-list__item__arrow"></span>
             </li>
         
-<li class="top__features-list__item" data-tabset-tab="preparing">
+<li class="top__features-list__item" data-tabset-tab="preparing"
+                ng-class="{'m-active': selectedTabIndex === 3}">
                 <a class="top__features-list__item__link top__features-list__item__link_preparing">Занятие
 <span class="top__features-list__item__link__subname">с преподавателем</span></a>
                 <span class="top__features-list__item__arrow"></span>
             </li>
         
-<li class="top__features-list__item" data-tabset-tab="effectiveStudy">
+<li class="top__features-list__item" data-tabset-tab="effectiveStudy"
+                ng-class="{'m-active': selectedTabIndex === 4}">
                 <a class="top__features-list__item__link top__features-list__item__link_effective-study">Грамматическая
 <span class="top__features-list__item__link__subname">осознанность языка</span></a>
                 <span class="top__features-list__item__arrow"></span>
@@ -403,7 +408,8 @@
                     <input class="get-lesson__input get-lesson__input_email" required type="email" name="email"
                            placeholder="E-mail"/>
                 </div>
-                <button class="btn btn_popup get-lesson-btn-mobile" id="form-submit">Записаться на бесплатный урок &rarr;</button>
+                <button class="btn btn_popup get-lesson-btn-mobile"
+                        id="form-submit">Записаться на бесплатный урок &rarr;</button>
 
             </form>
         </div>
@@ -414,7 +420,8 @@
 
                 <form data-form>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text" name="name"
+                        <input class="get-lesson__form__input get-lesson__form__input_name" required type="text"
+                               name="name"
                                placeholder="Имя и фамилия"/>
                     </div>
                     <div class="get-lesson__form__form-control">
@@ -422,7 +429,8 @@
                                placeholder="Телефон"/>
                     </div>
                     <div class="get-lesson__form__form-control">
-                        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email" name="email"
+                        <input class="get-lesson__form__input get-lesson__form__input_email" required type="email"
+                               name="email"
                                placeholder="E-mail"/>
                     </div>
 
