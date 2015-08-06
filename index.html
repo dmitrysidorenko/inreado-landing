@@ -3,18 +3,20 @@
 <head lang="ru">
     <meta charset="UTF-8">
     <title>INREADO</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
     <link rel="stylesheet" href="client/css/index.css"/>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
-    <script src="bower_components/angular-translate/angular-translate.js"></script>
 
     <!--<script src="client/js/data.js"></script>-->
     <script src="client/js/i18nLocales.js"></script>
@@ -29,7 +31,7 @@
 <header class="header">
     <div class="header__content">
         <a class="header__menu-icon"></a>
-        <a class="header__logo"><span>IN</span><span>READO</span>></a>
+        <a class="header__logo"><span>IN</span><span>READO</span></a>
 
         <div class="header__menu">
             <ul class="header__menu__list">
@@ -47,11 +49,12 @@
     </div>
 </header>
 
-<section class="top" id="features">
+<section class="top" id="possibilities">
     <h1 class="top__header" translate="top.header"></h1>
 
     <h2 class="top__sub-header" translate="top.subHeader"></h2>
-    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()" translate="getLessonBtn"></button>
+    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()"
+            translate="getLessonBtn"></button>
     <ul class="top__features-list"
         ng-swipe-right="prevFeature()"
         ng-swipe-left="nextFeature()">
@@ -70,7 +73,7 @@
     </ul>
 </section>
 
-<section class="features">
+<section class="features" id="features">
     <div class="features__content"
          ng-repeat="f in features"
          ng-show="f.active">
@@ -122,7 +125,7 @@
     </div>
 </section>
 
-<section class="pricing" id="{{::pricing.id}}">
+<section class="pricing" id="pricing">
     <div class="pricing__content">
         <div class="pricing__header-container">
             <i class="pricing__icon"></i>
@@ -160,24 +163,16 @@
 <section class="feedback">
     <div class="feedback__content">
 
-        <carousel interval="12000" disable-ng-animate="true" class="dap-carousel">
-            <slide ng-repeat="testimonial in feedback.list" active="slide.active"
-                   class="dap-carousel__slide feedback__list__item">
-                <h1 class="feedback__list__item__title">{{::testimonial.title}}</h1>
+        <!--
+                <carousel interval="12000" disable-ng-animate="true" class="dap-carousel">
+                    <slide ng-repeat="testimonial in feedback.list" active="slide.active"
+                           class="dap-carousel__slide feedback__list__item">
+                        <h1 class="feedback__list__item__title">{{::testimonial.title}}</h1>
 
-                <div class="feedback__list__item__text">{{::testimonial.text}}</div>
-            </slide>
-        </carousel>
-
-        <!--<ul rn-carousel rn-carousel-auto-slide="12" rn-carousel-controls rn-carousel-controls-allow-loop class="rn-carousel-slides rn-carousel-noanimate">
-            <li ng-repeat="testimonial in feedback.list"
-                   class="feedback__list__item layer">
-                <h1 class="feedback__list__item__title">{{::testimonial.title}}</h1>
-
-                <div class="feedback__list__item__text">{{::testimonial.text}}</div>
-            </li>
-        </ul>
-        <div rn-carousel-indicators slides="feedback.list" rn-carousel-index="0"></div>-->
+                        <div class="feedback__list__item__text">{{::testimonial.text}}</div>
+                    </slide>
+                </carousel>
+        -->
 
     </div>
 </section>
@@ -192,22 +187,22 @@
 </footer>
 
 <!--popups-->
-<!--<div class="overlap"></div>-->
 <script id="get-lesson" type="text/html">
     <div class="popup popup_wide">
         <i class="popup__close-icon" ng-click="$dismiss()"><span class="popup__close-icon__label_mobile">˟</span></i>
         <i class="popup__close-icon" ng-click="$dismiss()"><span class="popup__close-icon__label">Закрыть</span></i>
 
-        <div class="popup__content">
+        <div class="popup__content" stop-event="touchend">
             <h1 class="popup__title">Заявка на бесплатное занятие</h1>
 
             <div class="get-lesson get-lesson_mobile">
                 <form ng-submit="onSubmit()">
                     <div class="get-lesson__form-control">
-                        <input class="get-lesson__input get-lesson__input_name" autofocus required type="text"
+                        <input class="get-lesson__input get-lesson__input_name" required type="text"
                                name="name"
                                placeholder="Имя и фамилия"
-                               ng-model="data.name"/>
+                               ng-model="data.name"
+                               focus-it=""/>
                     </div>
                     <div class="get-lesson__form-control">
                         <input class="get-lesson__input get-lesson__input_phone" type="phone" name="phone"
@@ -328,13 +323,13 @@
     </div>
 </script>
 <script id="subFeatures" type="text/html">
-    <div class="popup">
+    <div class="popup popup_with-carousel">
         <i class="popup__close-icon" ng-click="$dismiss()">˟</i>
 
-        <div class="popup__contents">
-            <carousel interval="3000" disable-ng-animate="false" class="dap-carousel">
-                <slide ng-repeat="sf in feature.subFeatures" active="slide.active"
-                       class="dap-carousel__slide">
+        <carousel interval="3000" disable-ng-animate="true" class="dap-carousel">
+            <slide ng-repeat="sf in feature.subFeatures" active="sf.active"
+                   class="dap-carousel__slide">
+                <div class="popup__content">
 
                     <div class="sub-feature">
                         <h1 class="sub-feature__title">{{::sf.title}}</h1>
@@ -347,9 +342,9 @@
 
                         <div class="sub-feature__text">{{::sf.text}}</div>
                     </div>
-                </slide>
-            </carousel>
-        </div>
+                </div>
+            </slide>
+        </carousel>
 
         <button class="btn btn_popup" ng-click="showGetLessonPopup()">Записаться на бесплатный урок &rarr;</button>
     </div>

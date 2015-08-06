@@ -1,5 +1,5 @@
 angular
-    .module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
+    .module('app', ['data', 'ngSanitize', 'angular-carousel', /*'ngAnimate',*/ 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
     .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales",
         function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, $translateProvider, i18nLocales) {
             "use strict";
@@ -87,7 +87,7 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
                 sf.active = false;
             });
             subFeature.active = true;
-            $scope.showSubFeaturesPopup(feature);
+            $scope.showSubFeaturesPopup(feature, subFeature);
         },
         nextFeature: function () {
             var active = $scope.features.filter(function (f) {
@@ -137,23 +137,29 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
                 size: 'mobile success'
             });
         },
-        showSubFeaturesPopup: function (feature) {
+        showSubFeaturesPopup: function (feature, subFeature) {
             if ($scope.modalInstance) {
                 $scope.modalInstance.close();
             }
             if (!$scope.isMobile.value) {
                 return;
             }
-            $scope.modalInstance = $modal.open({
+            var modalInstance = $scope.modalInstance = $modal.open({
                 animation: true,
                 template: angular.element('#subFeatures').html(),
-                size: 'mobile',
+                size: 'mobile modal-carousel',
                 controller: 'subFeatures',
                 resolve: {
                     feature: function () {
                         return feature;
+                    },
+                    subFeature: function () {
+                        return subFeature;
                     }
                 }
+            });
+            modalInstance.result.then(function () {
+                $scope.showGetLessonPopup();
             });
         },
 
@@ -320,9 +326,9 @@ angular.module('app').controller('getLesson', ['$scope', '$http', function ($sco
 
     angular.extend($scope, {
         data: {
-            name: 'domdom',
+            name: '',
             phone: '',
-            email: 'dom@dom'
+            email: ''
         }
     });
 
@@ -336,14 +342,23 @@ angular.module('app').controller('getLesson', ['$scope', '$http', function ($sco
         }
     });
 }]);
-angular.module('app').controller('subFeatures', ['$scope', 'feature', function ($scope, feature) {
+angular.module('app').controller('subFeatures', ['$scope', 'feature', 'subFeature', function ($scope, feature, subFeature) {
     "use strict";
 
     angular.extend($scope, {
         feature: feature
     });
 
-    angular.extend($scope, {});
+    angular.extend($scope, {
+        showGetLessonPopup: function () {
+            $scope.$close();
+        }
+    });
+
+    feature.subFeatures.forEach(function (sf) {
+        sf.active = false;
+    });
+    subFeature.active = true;
 }]);
 angular.module('app').service('mobileQuery', ['$timeout', function ($timeout) {
     "use strict";
@@ -397,3 +412,18 @@ angular.module('app').directive('centerTab', [function () {
         }
     };
 }]);
+angular.module('app').directive('focusIt', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            attrs.$observe('focusIt', function (newVal, oldVal) {
+                if (newVal === 'true' || newVal === "") {
+                    setTimeout(function () {
+                        element.focus();
+                    }, 700);
+                }
+            });
+        }
+    };
+});
+;
