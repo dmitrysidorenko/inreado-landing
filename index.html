@@ -100,14 +100,14 @@
         <ul class="advantages__list">
 
             <li class="advantages__list__item"
-                ng-repeat="item in ::advantages.list">
-                <i class="advantages__list__item__icon {{::item.icon}}"></i>
+                ng-repeat="item in advantages">
+                <i class="advantages__list__item__icon {{item.icon}}"></i>
 
                 <div class="advantages__list__item__content">
 
-                    <h3 class="advantages__list__item__title">{{::item.title}}</h3>
+                    <h3 class="advantages__list__item__title">{{item.title}}</h3>
 
-                    <div class="advantages__list__item__text">{{::item.text}}</div>
+                    <div class="advantages__list__item__text">{{item.text}}</div>
 
                     <div class="advantages__list__item__bottom">
 

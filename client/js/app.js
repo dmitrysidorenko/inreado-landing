@@ -202,6 +202,28 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
                 "id": "pricing",
                 "state": "pricing"
             }
+        ],
+        advantages: [
+            {
+                id: "pricing",
+                icon: "advantages__list__item__icon_materials"
+            },
+            {
+                id: "speaking",
+                icon: "advantages__list__item__icon_studying"
+            },
+            {
+                id: "program",
+                icon: "advantages__list__item__icon_grammatic"
+            },
+            {
+                id: "application",
+                icon: "advantages__list__item__icon_individual"
+            },
+            {
+                id: "efficiency",
+                icon: "advantages__list__item__icon_effective"
+            }
         ]
     });
 
@@ -257,9 +279,24 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             headerMenuItemsPromises.push(d.promise);
         });
 
+        var advantagesPromises = [];
+        var advantagesLocalePath = "advantages.list.";
+        $scope.advantages.forEach(function (advantage) {
+            var d = $q.defer();
+            var title = advantagesLocalePath + advantage.id + ".title";
+            var text = advantagesLocalePath + advantage.id + ".text";
+
+            $translate([title, text]).then(function (translation) {
+                advantage.title = translation[title];
+                advantage.text = translation[text];
+                d.resolve();
+            });
+            advantagesPromises.push(d.promise);
+        });
+
         /*
          // not sure this is required
-         $q.all([featurePromises, headerMenuItemsPromises]).then(function () {
+         $q.all([featurePromises, headerMenuItemsPromises, advantagesPromises]).then(function () {
          // update scope when all translations are resolved
          });
          */
