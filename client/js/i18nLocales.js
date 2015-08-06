@@ -154,21 +154,24 @@ angular.module('data', []).constant('i18nLocales', {
             }
         },
         "testimonials": {
-            id1: {
-                userName: "Ivan",
-                text: "Hello! Your website is really good. I subscribed to updates and I'd really like to see more articles to read. Look forward to seeing new content!"
-            },
-            id2: {
-                userName: "Anna",
-                text: "Super! I've read one article, it's really convenient to listen pronunciation and learn correct translation of unfamiliar word instantly!!! thanks!"
-            },
-            id3: {
-                userName: "Julia",
-                text: "Fantastic service! Please add topics related to education and business. This topic is of the greatest interest to me now"
-            },
-            id4: {
-                userName: "Vova",
-                text: "It's great that your service makes possible to learn words that are most commonly used in real life. Vocabulary expands with the essential words only"
+            "subHeader": "Наш сервис эффективен.<br>И отзывы наших учеников тому подтверждение:",
+            "list": {
+                id1: {
+                    userName: "Ivan",
+                    text: "Hello! Your website is really good. I subscribed to updates and I'd really like to see more articles to read. Look forward to seeing new content!"
+                },
+                id2: {
+                    userName: "Anna",
+                    text: "Super! I've read one article, it's really convenient to listen pronunciation and learn correct translation of unfamiliar word instantly!!! thanks!"
+                },
+                id3: {
+                    userName: "Julia",
+                    text: "Fantastic service! Please add topics related to education and business. This topic is of the greatest interest to me now"
+                },
+                id4: {
+                    userName: "Vova",
+                    text: "It's great that your service makes possible to learn words that are most commonly used in real life. Vocabulary expands with the essential words only"
+                }
             }
         },
         "getLessonForm": {

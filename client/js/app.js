@@ -345,7 +345,7 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
         });
 
         var testimonialsPromises = [];
-        var testimonialsLocalePath = "testimonials";
+        var testimonialsLocalePath = "testimonials.list";
         $scope.testimonials.forEach(function (testimonial) {
             var d = $q.defer();
             var userNameResourceId = testimonialsLocalePath + ".id" + testimonial.id + ".userName";

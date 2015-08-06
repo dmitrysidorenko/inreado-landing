@@ -1622,7 +1622,7 @@ a {
     display: none;
   }
   .pricing {
-    padding: 50px 10px 113px 10px;
+    padding: 50px 10px 70px 10px;
     text-align: center;
   }
   .pricing__content {
@@ -1743,10 +1743,21 @@ a {
     line-height: 13px;
   }
   .feedback {
-    background: #fff;
+    background: #f4f6f8;
     padding-bottom: 37px;
     text-align: center;
     position: relative;
+  }
+  .feedback__sub-header {
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
+    color: #707a88;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 42px;
+    text-align: center;
+    width: 780px;
+    display: inline-block;
+    margin: 35px 0 30px;
   }
   .feedback__content {
     max-width: 1170px;
@@ -1800,7 +1811,7 @@ a {
     background: transparent url('../resources/img/quotes_right.png') no-repeat center center;
   }
   .footer {
-    background-color: #f4f6f8;
+    background-color: #fff;
     border-top: 1px solid #ECEEF0;
     padding: 24px 16px 22px 16px;
     text-align: center;
