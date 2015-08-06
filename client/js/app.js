@@ -387,13 +387,14 @@ angular.module('app').controller('getLesson', ['$scope', '$http', function ($sco
         data: {
             name: '',
             phone: '',
-            email: ''
+            email: '',
+            hasAndroid: false
         }
     });
 
     angular.extend($scope, {
         onSubmit: function () {
-            $http.post('/get-lesson', $scope.getLessonPopup).then(function () {
+            $http.post('/get-lesson', $scope.data).then(function () {
                 $scope.$close();
             }, function () {
                 $scope.$close();
@@ -485,4 +486,3 @@ angular.module('app').directive('focusIt', function () {
         }
     };
 });
-;

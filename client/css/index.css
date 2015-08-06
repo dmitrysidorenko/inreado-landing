@@ -382,6 +382,7 @@ tbody.collapse.in {
 }
 .get-lesson__form-control {
   margin-bottom: 34px;
+  text-align: left;
 }
 .get-lesson__input {
   font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
@@ -434,6 +435,14 @@ tbody.collapse.in {
   font-weight: 400;
   letter-spacing: -0.8px;
   line-height: 24px;
+}
+.get-lesson__checkbox-label {
+  font-size: 26px;
+  color: #2b3c48;
+}
+.get-lesson__checkbox {
+  width: 20px;
+  height: 20px;
 }
 body .m-scooch-bulleted a {
   background-color: #DCDCDC;
@@ -2158,5 +2167,13 @@ a {
     letter-spacing: 0.9px;
     line-height: 26px;
     text-align: left;
+  }
+  .get-lesson__checkbox-label {
+    font-size: 17px;
+    color: #2b3c48;
+  }
+  .get-lesson__checkbox {
+    width: 15px;
+    height: 15px;
   }
 }
