@@ -130,33 +130,33 @@
         <div class="pricing__header-container">
             <i class="pricing__icon"></i>
 
-            <h1 class="pricing__header">{{::pricing.header}}</h1>
+            <h1 class="pricing__header" translate="pricing.header"></h1>
         </div>
 
-        <h2 class="pricing__sub-header">{{::pricing.subHeader}}</h2>
+        <h2 class="pricing__sub-header" translate="pricing.subHeader"></h2>
 
         <ul class="pricing__list">
 
-            <li class="pricing__list__item" ng-repeat="p in ::pricing.list">
-                <i class="pricing__list__item__icon {{::p.icon}}"></i>
+            <li class="pricing__list__item" ng-repeat="p in pricing">
+                <i class="pricing__list__item__icon {{p.icon}}"></i>
 
-                <h3 class="pricing__list__item__title">{{::p.title}}</h3>
+                <h3 class="pricing__list__item__title">{{p.title}}</h3>
 
-                <div class="pricing__list__item__text">{{::p.text}}</div>
+                <div class="pricing__list__item__text">{{p.text}}</div>
             </li>
 
         </ul>
         <div class="pricing__big-price">
             <div class="pricing__big-price__left">
-                <span class="pricing__big-price__amount">{{::pricing.bigPrice.amount}}</span>
+                <span class="pricing__big-price__amount" translate="pricing.bigPrice.amount"></span>
             </div>
             <div class="pricing__big-price__right">
-                <span class="pricing__big-price__currency">{{::pricing.bigPrice.currency}}</span>
-                <span class="pricing__big-price__period">{{::pricing.bigPrice.period}}</span>
+                <span class="pricing__big-price__currency" translate="pricing.bigPrice.currency"></span>
+                <span class="pricing__big-price__period" translate="pricing.bigPrice.period"></span>
             </div>
         </div>
 
-        <button class="btn pricing__btn" ng-click="showGetLessonPopup()">{{::getLessonBtn}}</button>
+        <button class="btn pricing__btn" ng-click="showGetLessonPopup()" translate="getLessonBtn"></button>
     </div>
 </section>
 

@@ -132,30 +132,26 @@ angular.module('data', []).constant('i18nLocales', {
         },
         "pricing": {
             "header": "Стоимость",
-            "subHeader": "Education open minds. Technology conects them. We bring you the best of both, all in one place.",
+            "subHeader": "Запишитесь сейчас, и полу́чите индивидуальные занятия по цене групповых",
             "bigPrice": {
                 "amount": "1200",
                 "currency": "UAH",
                 "period": "месяц"
             },
-            "list": [
-                {
-                    "icon": "pricing__list__item__icon_calendar",
+            "list": {
+                "quantity": {
                     "title": "Кол-во занятий",
-                    "text": "2 в неделю"
+                    "text": "3 в неделю"
                 },
-                {
-                    "icon": "pricing__list__item__icon_time",
+                "duration": {
                     "title": "Длительность 1 урока",
-                    "text": "1.5 часа"
+                    "text": "45 минут"
                 },
-                {
-                    "icon": "pricing__list__item__icon_card",
+                "price": {
                     "title": "Стоимость 1 урока",
-                    "text": "70 UAH"
+                    "text": "100 UAH"
                 }
-            ],
-            "id": "pricing"
+            }
         },
         "feedback": {
             "id": "feedback",

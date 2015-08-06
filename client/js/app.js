@@ -230,6 +230,20 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
                 id: "efficiency",
                 icon: "advantages__list__item__icon_effective"
             }
+        ],
+        pricing: [
+            {
+                id: "quantity",
+                icon: "pricing__list__item__icon_calendar"
+            },
+            {
+                id: "duration",
+                icon: "pricing__list__item__icon_time"
+            },
+            {
+                id: "price",
+                icon: "pricing__list__item__icon_card"
+            }
         ]
     });
 
@@ -295,6 +309,21 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             $translate([title, text]).then(function (translation) {
                 advantage.title = translation[title];
                 advantage.text = translation[text];
+                d.resolve();
+            });
+            advantagesPromises.push(d.promise);
+        });
+
+        var pricingPromises = [];
+        var pricingLocalePath = "pricing.list.";
+        $scope.pricing.forEach(function (item) {
+            var d = $q.defer();
+            var title = pricingLocalePath + item.id + ".title";
+            var text = pricingLocalePath + item.id + ".text";
+
+            $translate([title, text]).then(function (translation) {
+                item.title = translation[title];
+                item.text = translation[text];
                 d.resolve();
             });
             advantagesPromises.push(d.promise);
