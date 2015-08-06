@@ -265,10 +265,10 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
          */
     }
 
-    /*angular.extend($scope, data, {
-     selectedTab: 0,
-     isMobile: mobileQuery.isMobile
-     });*/
+    angular.extend($scope, {
+        selectedTab: 0,
+        isMobile: mobileQuery.isMobile
+    });
 
     $scope.$on('$stateChangeSuccess', function (event, toState) {
         $anchorScroll.yOffset = 49;
@@ -281,13 +281,13 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
 angular.module('app').controller('getLesson', ['$scope', '$http', function ($scope, $http) {
     "use strict";
 
-    /*angular.extend($scope, {
-     data: {
-     name: 'domdom',
-     phone: '',
-     email: 'dom@dom'
-     }
-     });*/
+    angular.extend($scope, {
+        data: {
+            name: 'domdom',
+            phone: '',
+            email: 'dom@dom'
+        }
+    });
 
     angular.extend($scope, {
         onSubmit: function () {
