@@ -244,6 +244,21 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
                 id: "price",
                 icon: "pricing__list__item__icon_card"
             }
+        ],
+
+        testimonials: [
+            {
+                id: 1
+            },
+            {
+                id: 2
+            },
+            {
+                id: 3
+            },
+            {
+                id: 4
+            }
         ]
     });
 
@@ -329,9 +344,24 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             advantagesPromises.push(d.promise);
         });
 
+        var testimonialsPromises = [];
+        var testimonialsLocalePath = "testimonials";
+        $scope.testimonials.forEach(function (testimonial) {
+            var d = $q.defer();
+            var userNameResourceId = testimonialsLocalePath + ".id" + testimonial.id + ".userName";
+            var textResourceId = testimonialsLocalePath + ".id" + testimonial.id + ".text";
+
+            $translate([userNameResourceId, textResourceId]).then(function (translation) {
+                testimonial.userName = translation[userNameResourceId];
+                testimonial.text = translation[textResourceId];
+                d.resolve();
+            });
+            testimonialsPromises.push(d.promise);
+        });
+
         /*
          // not sure this is required
-         $q.all([featurePromises, headerMenuItemsPromises, advantagesPromises]).then(function () {
+         $q.all([featurePromises, headerMenuItemsPromises, advantagesPromises, testimonialsPromises]).then(function () {
          // update scope when all translations are resolved
          });
          */
