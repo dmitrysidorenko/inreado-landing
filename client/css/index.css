@@ -1314,7 +1314,7 @@ a {
   .top__features-list__item__link {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #53eab0;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 18px;
     text-align: center;
@@ -1344,11 +1344,12 @@ a {
   .top__features-list__item__link__subname {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #ffffff;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
     line-height: 18px;
     text-align: center;
     text-transform: uppercase;
+    margin-top: 10px;
     display: block;
   }
   .top__features-list__item__arrow {
@@ -1529,7 +1530,7 @@ a {
     font-weight: 300;
     line-height: 42px;
     text-align: center;
-    width: 675px;
+    width: 780px;
     display: inline-block;
     margin-bottom: 77px;
   }
@@ -1610,7 +1611,7 @@ a {
     margin: 0 auto;
   }
   .pricing__header-container {
-    margin-bottom: 34px;
+    margin-bottom: 25px;
   }
   .pricing__icon {
     display: none;

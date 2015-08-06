@@ -3,11 +3,7 @@
 <head lang="ru">
     <meta charset="UTF-8">
     <title>INREADO</title>
-
-
     <link rel="stylesheet" href="client/css/index.css"/>
-    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>-->
-
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -18,8 +14,10 @@
     <script src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
 
-    <script src="client/js/data.js"></script>
+    <!--<script src="client/js/data.js"></script>-->
+    <script src="client/js/i18nLocales.js"></script>
     <script src="client/js/app.js"></script>
     <script src="client/js/particles.js"></script>
 
@@ -31,15 +29,13 @@
 <header class="header">
     <div class="header__content">
         <a class="header__menu-icon"></a>
-        <a class="header__logo"><span>IN</span><span>READO</span><span
-                class="header__logo__beta">beta</span></a>
+        <a class="header__logo"><span>IN</span><span>READO</span>></a>
 
         <div class="header__menu">
             <ul class="header__menu__list">
 
-                <li class="header__menu__list__item"
-                    ng-repeat="item in ::header.menu.items">
-                    <a class="header__menu__list__item__link" ui-sref-active="active" ui-sref="{{::item.state}}">{{::item.text}}</a>
+                <li class="header__menu__list__item" ng-repeat="item in headerMenuItems">
+                    <a class="header__menu__list__item__link" ui-sref-active="active" ui-sref="{{item.state}}">{{item.title}}</a>
                 </li>
 
                 <li class="header__menu__list__item">
@@ -51,12 +47,11 @@
     </div>
 </header>
 
-<section class="top" id="{{::top.id}}">
-    <h1 class="top__header">{{::top.header}}</h1>
+<section class="top" id="features">
+    <h1 class="top__header" translate="top.header"></h1>
 
-    <h2 class="top__sub-header">{{::top.subHeader}}</h2>
-    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()">{{::getLessonBtn}}
-    </button>
+    <h2 class="top__sub-header" translate="top.subHeader"></h2>
+    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()" translate="getLessonBtn"></button>
     <ul class="top__features-list"
         ng-swipe-right="prevFeature()"
         ng-swipe-left="nextFeature()">
@@ -65,9 +60,10 @@
             ng-repeat="f in features"
             ng-class="{'m-active': f.active}"
             center-tab="{{f.active}}">
-            <a class="top__features-list__item__link {{::f.icon}}"
-               ng-click="selectFeature(f)">{{::f.title}}
-                <span class="top__features-list__item__link__subname">{{::f.subTitle}}</span></a>
+            <a class="top__features-list__item__link {{::f.icon}}" ng-click="selectFeature(f)">
+                {{f.titleTop}}
+                <span class="top__features-list__item__link__subname">{{f.titleBottom}}</span>
+            </a>
             <span class="top__features-list__item__arrow"></span>
         </li>
 
@@ -80,41 +76,27 @@
          ng-show="f.active">
 
         <ul class="features__list">
-
-            <li class="features__list__item"
-                ng-repeat="sf in f.subFeatures"
-                ng-class="{
-                    'active': sf.active
-                }">
-                <a class="features__list__item__link {{::sf.icon}}"
-                   ng-click="selectSubFeature(f, sf)">{{::sf.title}}</a>
+            <li class="features__list__item" ng-repeat="sf in f.subFeatures" ng-class="{'active': sf.active}">
+                <a class="features__list__item__link {{::sf.icon}}" ng-click="selectSubFeature(f, sf)">{{sf.title}}</a>
                 <i class="features__list__item__icon-arrow"></i>
             </li>
         </ul>
 
-        <div class="features__sub-feature"
-             ng-repeat="sf in f.subFeatures"
-             ng-class="{
-                'active': sf.active
-             }">
+        <div class="features__sub-feature" ng-repeat="sf in f.subFeatures" ng-class="{'active': sf.active}">
             <div class="sub-feature">
-                <h2 class="sub-feature__sub-title">{{::sf.subTitle}}</h2>
-
-                <h3 class="sub-feature__sub-sub-title">{{::sf.subSubTitle}}</h3>
-
-                <div class="sub-feature__text">{{::sf.text}}</div>
+                <div class="sub-feature__text">{{sf.text}}</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="advantages" id="{{::advantages.id}}">
+<section class="advantages" id="advantages">
     <div class="advantages__content">
         <div class="advantages__header-container">
             <i class="advantages__icon"></i>
-            <header class="advantages__header">{{::advantages.header}}</header>
+            <header class="advantages__header" translate="advantages.header"></header>
         </div>
-        <h2 class="advantages__sub-header">{{::advantages.subHeader}}</h2>
+        <h2 class="advantages__sub-header" translate="advantages.subHeader"></h2>
         <ul class="advantages__list">
 
             <li class="advantages__list__item"
@@ -201,13 +183,9 @@
 </section>
 
 <footer class="footer">
-    <div class="logo">
-        <span class="logo__in">IN</span>READO<span class="logo__beta">beta</span>
-    </div>
     <div class="footer__info">
-        <div class="footer__info__contacts">Contact us via e-mail <a class="footer__info__email"
-                                                                     href="mailto:team@inreado.com"
-                                                                     target="_blank">team@inreado.com</a>
+        <div class="footer__info__contacts">
+            Contact us via e-mail <a class="footer__info__email" href="mailto:team@inreado.com" target="_blank">team@inreado.com</a>
         </div>
         <div class="footer__info__legals">© 2015 inreado.com. All rights reserved.</div>
     </div>
