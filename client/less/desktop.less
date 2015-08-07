@@ -212,22 +212,32 @@
 }
 
 .features {
-  padding         : 0 38px;
-  overflow        : hidden;
-  background      : transparent url('../resources/img/houses.png') repeat-x bottom center;
-  padding-bottom  : 75px;
-  background-size : 100% 70px;
-  min-height      : 300px;
+  position       : relative;
+  overflow       : hidden;
+  height         : 320px;
+  transform      : translateY(0);
+  padding-bottom : 75px;
+
+  &__bottom-bg-image {
+    position        : absolute;
+    width           : 100%;
+    bottom          : 0;
+    height          : 75px;
+    background      : transparent url('../resources/img/houses.png') repeat-x bottom center;
+    background-size : 100% 70px;
+  }
 
   &__content {
-    max-width  : 950px;
-    margin     : 0 auto;
-    transition : max-height 1s ease;
-    overflow   : hidden;
-    max-height : 350px;
+    max-width : 950px;
+    margin    : 0 auto;
+    overflow  : hidden;
+
+    &.ng-hide-remove-active {
+      transition : transform 500ms ease;
+    }
 
     &.ng-hide {
-      max-height : 0;
+      transform : translateY(100%);
     }
   }
 
@@ -238,7 +248,6 @@
     opacity : 1;
 
     &.ng-hide-remove-active {
-      /* the transition is defined in the active class */
       transition : 500ms linear all;
     }
 

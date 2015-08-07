@@ -76,6 +76,123 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
     "use strict";
 
     angular.extend($scope, {
+        selectedTab: 0,
+        isMobile: mobileQuery.isMobile,
+        features: [
+            {
+                "id": "reading",
+                "active": true,
+                "icon": "top__features-list__item__link_reading",
+                "subFeatures": [
+                    {id: "adaptedTexts", active: true},
+                    {id: "contextTranslation"}
+                ]
+            },
+            {
+                "id": "listening",
+                "active": false,
+                "icon": "top__features-list__item__link_listening",
+                "subFeatures": [
+                    {id: "podcast", active: true},
+                    {id: "rewind"},
+                    {id: "transcription"}
+                ]
+            },
+            {
+                "id": "speaking",
+                "active": false,
+                "icon": "top__features-list__item__link_communication",
+                "subFeatures": [
+                    {id: "speakingPractice", active: true}
+                ]
+            },
+            {
+                "id": "preparation",
+                "active": false,
+                "icon": "top__features-list__item__link_preparing",
+                "subFeatures": [
+                    {id: "androidApplication", active: true},
+                    {id: "webInterface"}
+                ]
+            },
+            {
+                "id": "efficiency",
+                "active": false,
+                "icon": "top__features-list__item__link_effective-study",
+                "subFeatures": [
+                    {id: "contentSelectionByUserLevel", active: true},
+                    {id: "contentSelectionByTeacher"},
+                    {id: "lessonPlanning"}
+                ]
+            }
+        ],
+        headerMenuItems: [
+            {
+                "id": "features",
+                "state": "features"
+            },
+            {
+                "id": "advantages",
+                "state": "advantages"
+            },
+            {
+                "id": "pricing",
+                "state": "pricing"
+            }
+        ],
+        advantages: [
+            {
+                id: "pricing",
+                icon: "advantages__list__item__icon_materials"
+            },
+            {
+                id: "speaking",
+                icon: "advantages__list__item__icon_studying"
+            },
+            {
+                id: "program",
+                icon: "advantages__list__item__icon_grammatic"
+            },
+            {
+                id: "application",
+                icon: "advantages__list__item__icon_individual"
+            },
+            {
+                id: "efficiency",
+                icon: "advantages__list__item__icon_effective"
+            }
+        ],
+        pricing: [
+            {
+                id: "quantity",
+                icon: "pricing__list__item__icon_calendar"
+            },
+            {
+                id: "duration",
+                icon: "pricing__list__item__icon_time"
+            },
+            {
+                id: "price",
+                icon: "pricing__list__item__icon_card"
+            }
+        ],
+        testimonials: [
+            {
+                id: 1
+            },
+            {
+                id: 2
+            },
+            {
+                id: 3
+            },
+            {
+                id: 4
+            }
+        ]
+    });
+
+    angular.extend($scope, {
         selectFeature: function (feature) {
             $scope.features.forEach(function (f) {
                 f.active = false;
@@ -161,105 +278,13 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             modalInstance.result.then(function () {
                 $scope.showGetLessonPopup();
             });
-        },
+        }
+    });
 
-        features: [
-            {
-                "id": "reading",
-                "active": true,
-                "icon": "top__features-list__item__link_reading",
-                "subFeatures": [{id: "adaptedTexts"}, {id: "contextTranslation"}]
-            },
-            {
-                "id": "listening",
-                "active": false,
-                "icon": "top__features-list__item__link_listening",
-                "subFeatures": [{id: "podcast"}, {id: "rewind"}, {id: "transcription"}]
-            },
-            {
-                "id": "speaking",
-                "active": false,
-                "icon": "top__features-list__item__link_communication",
-                "subFeatures": [{id: "speakingPractice"}]
-            },
-            {
-                "id": "preparation",
-                "active": false,
-                "icon": "top__features-list__item__link_preparing",
-                "subFeatures": [{id: "androidApplication"}, {id: "webInterface"}]
-            },
-            {
-                "id": "efficiency",
-                "active": false,
-                "icon": "top__features-list__item__link_effective-study",
-                "subFeatures": [{id: "contentSelectionByUserLevel"}, {id: "contentSelectionByTeacher"}, {id: "lessonPlanning"}]
-            }
-        ],
-        headerMenuItems: [
-            {
-                "id": "features",
-                "state": "features"
-            },
-            {
-                "id": "advantages",
-                "state": "advantages"
-            },
-            {
-                "id": "pricing",
-                "state": "pricing"
-            }
-        ],
-        advantages: [
-            {
-                id: "pricing",
-                icon: "advantages__list__item__icon_materials"
-            },
-            {
-                id: "speaking",
-                icon: "advantages__list__item__icon_studying"
-            },
-            {
-                id: "program",
-                icon: "advantages__list__item__icon_grammatic"
-            },
-            {
-                id: "application",
-                icon: "advantages__list__item__icon_individual"
-            },
-            {
-                id: "efficiency",
-                icon: "advantages__list__item__icon_effective"
-            }
-        ],
-        pricing: [
-            {
-                id: "quantity",
-                icon: "pricing__list__item__icon_calendar"
-            },
-            {
-                id: "duration",
-                icon: "pricing__list__item__icon_time"
-            },
-            {
-                id: "price",
-                icon: "pricing__list__item__icon_card"
-            }
-        ],
-
-        testimonials: [
-            {
-                id: 1
-            },
-            {
-                id: 2
-            },
-            {
-                id: 3
-            },
-            {
-                id: 4
-            }
-        ]
+    $scope.$on('$stateChangeSuccess', function (event, toState) {
+        $anchorScroll.yOffset = 49;
+        $location.hash();
+        $anchorScroll($state.current.name);
     });
 
     $scope.$watch(function () {
@@ -366,17 +391,6 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
          });
          */
     }
-
-    angular.extend($scope, {
-        selectedTab: 0,
-        isMobile: mobileQuery.isMobile
-    });
-
-    $scope.$on('$stateChangeSuccess', function (event, toState) {
-        $anchorScroll.yOffset = 49;
-        $location.hash();
-        $anchorScroll($state.current.name);
-    });
 
     mobileQuery.run();
 }]);
