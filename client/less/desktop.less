@@ -26,7 +26,6 @@
   }
 
   &__logo {
-    font-family     : @lato_font;
     color           : #36C79D;
     font-size       : 30px;
     font-weight     : 400;
@@ -65,8 +64,8 @@
         margin-right : 29px;
 
         &__link {
-          font-family     : @calibri_font;
-          color           : #707a88;
+          font-family     : @lato-font-light;
+          color           : #3A414C;
           font-size       : 15px;
           font-weight     : 700;
           text-align      : left;
@@ -89,30 +88,27 @@
 .top {
   background : #323840;
   text-align : center;
-  padding    : 122px 10px 0 10px;
+  padding    : 100px 10px 0 10px;
   font-size  : 0;
   z-index    : 1;
   position   : relative;
 
   &__header {
-    font-family   : @calibri_font;
+    font-family   : @lato-font-light;
     color         : #ffffff;
-    font-size     : 34px;
-    font-weight   : 400;
+    font-size     : 28px;
     line-height   : 42px;
     text-align    : center;
-    margin-bottom : 18px;
+    margin-bottom : 40px;
     z-index       : 1;
   }
 
   &__sub-header {
-    font-family   : @calibri_font;
     color         : #ffffff;
-    font-size     : 19px;
-    font-weight   : 400;
-    line-height   : 19px;
+    font-size     : 37px;
+    line-height   : 37px;
     text-align    : center;
-    margin-bottom : 77px;
+    margin-bottom : 50px;
     z-index       : 1;
   }
 
@@ -123,7 +119,7 @@
     white-space : nowrap;
     overflow    : hidden;
     display     : block;
-    max-width   : 950px;
+    max-width   : 1000px;
     z-index     : 1;
 
     &__item {
@@ -137,45 +133,40 @@
       }
 
       &__link {
-        font-family         : @calibri_font;
-        color               : #53eab0;
-        font-size           : 18px;
-        font-weight         : 400;
-        line-height         : 18px;
-        text-align          : center;
-        padding-top         : 45px;
-        display             : block;
-        padding-bottom      : 53px;
-        background-size     : 40px;
-        background-color    : transparent;
-        background-position : top center;
-        background-repeat   : no-repeat;
+        color          : #53eab0;
+        font-size      : 18px;
+        font-weight    : 400;
+        line-height    : 18px;
+        text-align     : center;
+        padding-top    : 45px;
+        display        : block;
+        padding-bottom : 40px;
+        background     : transparent no-repeat top center;
 
         &&_reading {
-          background-image : url("../resources/img/icon-reading_x2.png");
+          background-image : url("../resources/img/ic-reading.png");
         }
 
         &&_listening {
-          background-image : url("../resources/img/icon-listening_x2.png");
+          background-image : url("../resources/img/ic-listening.png");
         }
 
         &&_communication {
-          background-image : url("../resources/img/icon-communication_x2.png");
+          background-image : url("../resources/img/ic-speaking.png");
         }
 
         &&_preparing {
-          background-image : url("../resources/img/icon-preparing_x2.png");
+          background-image : url("../resources/img/ic-preparation.png");
         }
 
         &&_effective-study {
-          background-image : url("../resources/img/icon-effective-study_x2.png");
+          background-image : url("../resources/img/ic-efficiency.png");
         }
 
         &__subname {
-          font-family    : @calibri_font;
+          font-family    : @lato-font-light;
           color          : #ffffff;
-          font-size      : 19px;
-          font-weight    : 700;
+          font-size      : 18px;
           line-height    : 18px;
           text-align     : center;
           text-transform : uppercase;
@@ -225,6 +216,7 @@
   background      : transparent url('../resources/img/houses.png') repeat-x bottom center;
   padding-bottom  : 75px;
   background-size : 100% 70px;
+  min-height      : 300px;
 
   &__content {
     max-width  : 950px;
@@ -241,8 +233,8 @@
   &__sub-feature {
     display : none;
     float   : left;
-    width   : 70%;
-    padding : 36px 0 22px 42px;
+    width   : 73%;
+    padding : 30px 0 22px 20px;
 
     &.active {
       display : block;
@@ -252,9 +244,9 @@
   &__list {
     background-color : #ffffff;
     list-style       : none;
-    padding          : 22px 0 0 0;
+    padding          : 23px 0 0 0;
     margin           : 0;
-    width            : 30%;
+    width            : 27%;
     float            : left;
 
     &__item {
@@ -269,14 +261,12 @@
       }
 
       &__link {
-        font-family         : @calibri_font;
         color               : #818c9d;
-        font-size           : 14px;
-        font-weight         : 400;
-        line-height         : 17px;
+        font-size           : 17px;
+        line-height         : 19px;
         text-align          : left;
         display             : block;
-        padding             : 14px 0 14px 41px;
+        padding             : 10px 0 10px 41px;
         background-repeat   : no-repeat;
         background-position : left center;
         border-bottom       : 1px dotted #E9EFF1;
@@ -297,36 +287,6 @@
 .sub-feature {
   text-align : center;
 
-  &__title {
-    font-family    : @lato_font;
-    margin-bottom  : 60px;
-    color          : #2b3c48;
-    text-align     : center;
-    text-transform : uppercase;
-    font-size      : 48px;
-    font-weight    : 700;
-    line-height    : 66px;
-  }
-  &__sub-title {
-    font-family   : @lato_font;
-    color         : #707a88;
-    font-size     : 23px;
-    font-weight   : 300;
-    line-height   : 28px;
-    text-align    : left;
-    margin-bottom : 10px;
-  }
-  &__sub-sub-title {
-    font-family   : @lato_font;
-    color         : #707a88;
-    font-size     : 23px;
-    font-weight   : 300;
-    line-height   : 28px;
-    text-align    : left;
-    margin-bottom : 10px;
-
-  }
-
   &__icon {
     display             : inline-block;
     background-position : center center;
@@ -340,12 +300,10 @@
   }
 
   &__text {
-    font-family : @calibri_font;
-    color       : #818c9d;
+    color       : #464646;
     font-size   : 16px;
-    font-weight : 400;
-    line-height : 17px;
-    text-align  : left;
+    line-height : 22px;
+    text-align  : justify;
   }
 }
 
@@ -369,7 +327,6 @@
   }
 
   &__header {
-    font-family     : @calibri_font;
     color           : #2b3c48;
     font-size       : 20px;
     font-weight     : 700;
@@ -383,7 +340,6 @@
   }
 
   &__sub-header {
-    font-family   : @lato_font;
     color         : #707a88;
     font-size     : 32px;
     font-weight   : 300;
@@ -452,7 +408,6 @@
       }
 
       &__title {
-        font-family    : @calibri_font;
         color          : #2b3c48;
         font-size      : 30px;
         font-weight    : 400;
@@ -462,7 +417,6 @@
       }
 
       &__text {
-        font-family   : @lato_font;
         color         : #5f656d;
         font-size     : 17px;
         font-weight   : 300;
@@ -495,7 +449,6 @@
   }
 
   &__header {
-    font-family     : @calibri_font;
     color           : #2b3c48;
     font-size       : 20px;
     font-weight     : 700;
@@ -509,7 +462,6 @@
   }
 
   &__sub-header {
-    font-family   : @lato_font;
     color         : #707a88;
     font-size     : 32px;
     font-weight   : 300;
@@ -558,7 +510,6 @@
       }
 
       &__title {
-        font-family    : @calibri_font;
         color          : #707a88;
         font-size      : 20px;
         font-weight    : 400;
@@ -569,7 +520,6 @@
       }
 
       &__text {
-        font-family : @calibri_font;
         color       : #2b3c48;
         font-size   : 18px;
         font-weight : 400;
@@ -593,13 +543,11 @@
     }
 
     &__amount {
-      font-family : @lato_font;
       font-size   : 45px;
       font-weight : 300;
       line-height : 45px;
     }
     &__currency {
-      font-family : @calibri_font;
       text-align  : left;
       display     : block;
       font-size   : 18px;
@@ -607,7 +555,6 @@
       line-height : 18px;
     }
     &__period {
-      font-family : @calibri_font;
       text-align  : left;
       font-size   : 13px;
       font-weight : 400;
@@ -623,7 +570,6 @@
   position       : relative;
 
   &__sub-header {
-    font-family : @lato_font;
     color       : #707a88;
     font-size   : 32px;
     font-weight : 300;
@@ -648,7 +594,6 @@
       }
 
       &__title {
-        font-family    : @calibri_font;
         color          : #2b3c48;
         font-size      : 25px;
         font-weight    : 400;
@@ -660,7 +605,6 @@
       }
 
       &__text {
-        font-family    : @lato_font;
         color          : #5f656d;
         font-size      : 16px;
         font-weight    : 300;
@@ -701,7 +645,6 @@
   text-align       : center;
 
   &__info {
-    font-family : @lato_font;
 
     color       : #818c9d;
     font-size   : 14px;
@@ -721,7 +664,6 @@
 }
 
 .logo {
-  font-family     : @lato_font;
   color           : #324356;
   font-size       : 24px;
   font-weight     : 400;
@@ -747,10 +689,8 @@
 
 .btn {
   background-color : #2ecc71;
-  font-family      : Arial, serif;
   color            : #ffffff;
-  font-size        : 16px;
-  font-weight      : 400;
+  font-size        : 18px;
   line-height      : 16px;
   text-align       : center;
   margin           : 0;

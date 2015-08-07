@@ -382,6 +382,7 @@ tbody.collapse.in {
 }
 .get-lesson__form-control {
   margin-bottom: 34px;
+  text-align: left;
 }
 .get-lesson__input {
   font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
@@ -434,6 +435,14 @@ tbody.collapse.in {
   font-weight: 400;
   letter-spacing: -0.8px;
   line-height: 24px;
+}
+.get-lesson__checkbox-label {
+  font-size: 26px;
+  color: #2b3c48;
+}
+.get-lesson__checkbox {
+  width: 20px;
+  height: 20px;
 }
 body .m-scooch-bulleted a {
   background-color: #DCDCDC;
@@ -770,7 +779,7 @@ a {
     margin: 0;
   }
   .advantages__list__item {
-    padding-bottom: 59px;
+    padding-bottom: 36px;
     text-align: center;
   }
   .advantages__list__item__icon {
@@ -798,62 +807,64 @@ a {
   .advantages__list__item__title {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 300;
-    line-height: 40px;
+    line-height: 33px;
     text-align: center;
-    padding-bottom: 26px;
+    padding-bottom: 19px;
   }
   .advantages__list__item__text {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 300;
-    line-height: 42px;
+    line-height: 33px;
     text-align: center;
+    word-spacing: 9px;
   }
   .advantages__list__item__delimeter {
     border-bottom: 1px solid #aaaaaa;
     width: 198px;
     display: inline-block;
-    padding-top: 57px;
+    padding-top: 36px;
   }
   .pricing {
-    padding: 50px 10px 40px 10px;
+    padding: 25px 10px 25px 10px;
     text-align: center;
   }
   .pricing__icon {
     background: transparent url('../resources/img/icon-wallet.png') no-repeat center center;
     height: 30px;
     display: block;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   .pricing__header {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 38px;
     text-align: center;
-    padding-bottom: 41px;
+    padding-bottom: 18px;
   }
   .pricing__sub-header {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 400;
-    line-height: 42px;
+    line-height: 36px;
     text-align: center;
     padding-bottom: 42px;
+    word-spacing: 5px;
   }
   .pricing__list {
     list-style: none;
-    padding: 0 0 80px 0;
+    padding: 0 0 30px 0;
     margin: 0;
   }
   .pricing__list__item {
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
   }
   .pricing__list__item:last-child {
     padding-bottom: 0;
@@ -876,20 +887,20 @@ a {
   .pricing__list__item__title {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #707a88;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 400;
-    line-height: 42px;
+    line-height: 32px;
   }
   .pricing__list__item__text {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #56606e;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 300;
-    line-height: 42px;
+    line-height: 32px;
   }
   .pricing__big-price {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
-    margin-bottom: 56px;
+    margin-bottom: 46px;
     color: #2b3c48;
   }
   .pricing__big-price__left {
@@ -918,25 +929,25 @@ a {
   }
   .feedback {
     background: #fff;
-    padding: 40px 0;
+    padding: 20px 0 40px 0;
     text-align: center;
     position: relative;
   }
   .feedback__list__item__title {
     font-family: Calibri, Helvetica Neue, Helvetica, Arial, serif;
     color: #2b3c48;
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 700;
     line-height: 48px;
     text-align: center;
   }
   .feedback__list__item__text {
     color: #707a88;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 42px;
+    line-height: 36px;
     text-align: center;
-    padding: 44px 51px;
+    padding: 35px 0px;
     position: relative;
     margin: 0 56px;
   }
@@ -979,15 +990,15 @@ a {
   .footer {
     background-color: #f4f6f8;
     border-top: 1px solid #ECEEF0;
-    padding: 28px 16px 28px 16px;
+    padding: 0px 10px 20px 10px;
     text-align: center;
   }
   .footer__info {
     font-family: Lato, Helvetica Neue, Helvetica, Arial, serif;
     color: #818c9d;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
-    line-height: 24px;
+    line-height: 28px;
     text-align: center;
     padding-top: 28px;
   }
@@ -2169,6 +2180,14 @@ a {
     letter-spacing: 0.9px;
     line-height: 26px;
     text-align: left;
+  }
+  .get-lesson__checkbox-label {
+    font-size: 17px;
+    color: #2b3c48;
+  }
+  .get-lesson__checkbox {
+    width: 15px;
+    height: 15px;
   }
 }
 
