@@ -1,5 +1,5 @@
 angular
-    .module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
+    .module('app', ['data', 'ngSanitize', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
     .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales",
         function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, $translateProvider, i18nLocales) {
             "use strict";
@@ -472,17 +472,29 @@ angular.module('app').directive('centerTab', [function () {
         }
     };
 }]);
-angular.module('app').directive('focusIt', function () {
-    return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-            attrs.$observe('focusIt', function (newVal, oldVal) {
-                if (newVal === 'true' || newVal === "") {
-                    setTimeout(function () {
-                        element.focus();
-                    }, 700);
-                }
-            });
-        }
-    };
-});
+angular.module('app')
+    .directive('focusIt', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                attrs.$observe('focusIt', function (newVal, oldVal) {
+                    if (newVal === 'true' || newVal === "") {
+                        setTimeout(function () {
+                            element.focus();
+                        }, 700);
+                    }
+                });
+            }
+        };
+    })
+    .directive('disableNgAnimate', ['$animate', function ($animate) {
+        "use strict";
+
+        return {
+            restrict: 'A',
+            link: function (scope, element) {
+                $animate.enabled(false, element);
+            }
+        };
+    }]);
+

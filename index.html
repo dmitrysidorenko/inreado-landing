@@ -6,15 +6,16 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
     <link rel="stylesheet" href="client/css/index.css"/>
+    <!--<link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.min.css"/>-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!--<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>-->
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
 
@@ -148,7 +149,8 @@
     <h2 class="feedback__sub-header" translate="testimonials.subHeader"></h2>
 
     <div class="feedback__content">
-        <carousel interval="12000" disable-ng-animate="true" class="dap-carousel">
+        <carousel interval="12000" class="dap-carousel" ng-swipe-right="prev()"
+                  ng-swipe-left="next()">
             <slide ng-repeat="t in testimonials" active="slide.active" class="dap-carousel__slide feedback__list__item">
                 <h1 class="feedback__list__item__title">{{t.userName}}</h1>
 
