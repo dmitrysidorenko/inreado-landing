@@ -1,5 +1,5 @@
 angular
-    .module('app', ['data', 'ngSanitize', 'angular-carousel', /*'ngAnimate',*/ 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
+    .module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
     .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales",
         function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, $translateProvider, i18nLocales) {
             "use strict";

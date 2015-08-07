@@ -18,7 +18,6 @@
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
 
-    <!--<script src="client/js/data.js"></script>-->
     <script src="client/js/i18nLocales.js"></script>
     <script src="client/js/app.js"></script>
     <script src="client/js/particles.js"></script>
@@ -50,39 +49,27 @@
     <h1 class="top__header" translate="top.header"></h1>
 
     <h2 class="top__sub-header" translate="top.subHeader"></h2>
-    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()"
-            translate="getLessonBtn"></button>
-    <ul class="top__features-list"
-        ng-swipe-right="prevFeature()"
-        ng-swipe-left="nextFeature()">
-
-        <li class="top__features-list__item"
-            ng-repeat="f in features"
-            ng-class="{'m-active': f.active}"
-            center-tab="{{f.active}}">
+    <button class="btn top__get-lesson-btn btn_left-arrow" ng-click="showGetLessonPopup()" translate="getLessonBtn"></button>
+    <ul class="top__features-list" ng-swipe-right="prevFeature()" ng-swipe-left="nextFeature()">
+        <li class="top__features-list__item" ng-repeat="f in features" ng-class="{'m-active': f.active}" center-tab="{{f.active}}">
             <a class="top__features-list__item__link {{::f.icon}}" ng-click="selectFeature(f)">
                 {{f.titleTop}}
                 <span class="top__features-list__item__link__subname">{{f.titleBottom}}</span>
             </a>
             <span class="top__features-list__item__arrow"></span>
         </li>
-
     </ul>
 </section>
 
 <section class="features" id="features">
-    <div class="features__content"
-         ng-repeat="f in features"
-         ng-show="f.active">
-
+    <div class="features__content" ng-repeat="f in features" ng-show="f.active">
         <ul class="features__list">
             <li class="features__list__item" ng-repeat="sf in f.subFeatures" ng-class="{'active': sf.active}">
                 <a class="features__list__item__link {{::sf.icon}}" ng-click="selectSubFeature(f, sf)">{{sf.title}}</a>
                 <i class="features__list__item__icon-arrow"></i>
             </li>
         </ul>
-
-        <div class="features__sub-feature" ng-repeat="sf in f.subFeatures" ng-class="{'active': sf.active}">
+        <div class="features__sub-feature" ng-repeat="sf in f.subFeatures" ng-show="sf.active">
             <div class="sub-feature">
                 <div class="sub-feature__text">{{sf.text}}</div>
             </div>
@@ -159,6 +146,7 @@
 
 <section class="feedback">
     <h2 class="feedback__sub-header" translate="testimonials.subHeader"></h2>
+
     <div class="feedback__content">
         <carousel interval="12000" disable-ng-animate="true" class="dap-carousel">
             <slide ng-repeat="t in testimonials" active="slide.active" class="dap-carousel__slide feedback__list__item">
