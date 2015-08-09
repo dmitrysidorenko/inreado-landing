@@ -513,14 +513,7 @@ a {
     z-index: 3;
   }
   .header__menu-icon {
-    background: transparent url('../resources/img/Hamburger%2050px.png') no-repeat center center;
-    width: 30px;
-    height: 26px;
-    display: inline-block;
-    position: absolute;
-    top: 39px;
-    left: 30px;
-    cursor: pointer;
+    display: none;
   }
   .header__logo {
     color: #36c99e;
@@ -561,7 +554,7 @@ a {
   .top__header {
     color: #ffffff;
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 44px;
     text-align: center;
     margin-bottom: 53px;
@@ -602,31 +595,36 @@ a {
     text-align: center;
     padding-top: 60px;
     display: block;
-    padding-bottom: 54px;
+    padding-bottom: 42px;
+    background-color: transparent;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top center;
   }
   .top__features-list__item__link.top__features-list__item__link_reading {
-    background: transparent url("../resources/img/icon-reading_x2.png") no-repeat top center;
+    background-image: url("../resources/img/ic-reading.png");
   }
   .top__features-list__item__link.top__features-list__item__link_listening {
-    background: transparent url("../resources/img/icon-listening_x2.png") no-repeat top center;
+    background-image: url("../resources/img/ic-listening.png");
   }
   .top__features-list__item__link.top__features-list__item__link_communication {
-    background: transparent url("../resources/img/icon-communication_x2.png") no-repeat top center;
+    background-image: url("../resources/img/ic-speaking.png");
   }
   .top__features-list__item__link.top__features-list__item__link_preparing {
-    background: transparent url("../resources/img/icon-preparing_x2.png") no-repeat top center;
+    background-image: url("../resources/img/ic-preparation.png");
   }
   .top__features-list__item__link.top__features-list__item__link_effective-study {
-    background: transparent url("../resources/img/icon-effective-study_x2.png") no-repeat top center;
+    background-image: url("../resources/img/ic-efficiency.png");
   }
   .top__features-list__item__link__subname {
     color: #ffffff;
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 34px;
+    line-height: 26px;
     text-align: center;
     text-transform: uppercase;
     display: block;
+    margin-top: 10px;
   }
   .top__features-list__item__arrow {
     width: 0;
@@ -676,7 +674,7 @@ a {
     line-height: 30px;
     text-align: left;
     display: block;
-    padding: 13px 24px 13px 70px;
+    padding: 20px 28px 20px 70px;
     background-repeat: no-repeat;
     background-position: left center;
   }
@@ -692,9 +690,6 @@ a {
   .features__content {
     transition: max-height 1s;
     overflow: hidden;
-  }
-  .features__content.ng-hide {
-    max-height: 0;
   }
   .sub-feature {
     text-align: center;

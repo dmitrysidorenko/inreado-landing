@@ -6,14 +6,7 @@
   z-index     : 3;
 
   &__menu-icon {
-    background : transparent url('../resources/img/Hamburger%2050px.png') no-repeat center center;
-    width      : 30px;
-    height     : 26px;
-    display    : inline-block;
-    position   : absolute;
-    top        : 39px;
-    left       : 30px;
-    cursor     : pointer;
+    display : none;
   }
 
   &__logo {
@@ -62,7 +55,7 @@
   &__header {
     color         : #ffffff;
     font-size     : 30px;
-    font-weight   : 700;
+    font-weight   : 400;
     line-height   : 44px;
     text-align    : center;
     margin-bottom : 53px;
@@ -99,43 +92,53 @@
       }
 
       &__link {
-        color          : #53eab0;
-        font-size      : 26px;
-        font-weight    : 400;
-        line-height    : 26px;
-        text-align     : center;
-        padding-top    : 60px;
-        display        : block;
-        padding-bottom : 54px;
+        color               : #53eab0;
+        font-size           : 26px;
+        font-weight         : 400;
+        line-height         : 26px;
+        text-align          : center;
+        padding-top         : 60px;
+        display             : block;
+        padding-bottom      : 42px;
+        background-color    : transparent;
+        background-size     : auto;
+        background-repeat   : no-repeat;
+        background-position : top center;
 
         &&_reading {
-          background : transparent url("../resources/img/icon-reading_x2.png") no-repeat top center;
+          background-image : url("../resources/img/ic-reading.png");
+          //          background : transparent url("../resources/img/icon-reading_x2.png") no-repeat top center;
         }
 
         &&_listening {
-          background : transparent url("../resources/img/icon-listening_x2.png") no-repeat top center;
+          background-image : url("../resources/img/ic-listening.png");
+          //          background : transparent url("../resources/img/icon-listening_x2.png") no-repeat top center;
         }
 
         &&_communication {
-          background : transparent url("../resources/img/icon-communication_x2.png") no-repeat top center;
+          background-image : url("../resources/img/ic-speaking.png");
+          //          background : transparent url("../resources/img/icon-communication_x2.png") no-repeat top center;
         }
 
         &&_preparing {
-          background : transparent url("../resources/img/icon-preparing_x2.png") no-repeat top center;
+          background-image : url("../resources/img/ic-preparation.png");
+          //          background : transparent url("../resources/img/icon-preparing_x2.png") no-repeat top center;
         }
 
         &&_effective-study {
-          background : transparent url("../resources/img/icon-effective-study_x2.png") no-repeat top center;
+          background-image : url("../resources/img/ic-efficiency.png");
+          //          background : transparent url("../resources/img/icon-effective-study_x2.png") no-repeat top center;
         }
 
         &__subname {
           color          : #ffffff;
-          font-size      : 34px;
+          font-size      : 26px;
           font-weight    : 700;
-          line-height    : 34px;
+          line-height    : 26px;
           text-align     : center;
           text-transform : uppercase;
           display        : block;
+          margin-top     : 10px;
         }
       }
 
@@ -168,7 +171,8 @@
 }
 
 .features {
-  padding : 0 10px;
+  padding   : 0 10px;
+//  transform : translateY(0);
 
   &__sub-feature {
     display : none;
@@ -195,7 +199,7 @@
         line-height         : 30px;
         text-align          : left;
         display             : block;
-        padding             : 13px 24px 13px 70px;
+        padding             : 20px 28px 20px 70px;
         background-repeat   : no-repeat;
         background-position : left center;
       }
@@ -217,8 +221,12 @@
     overflow   : hidden;
     //    max-height : 350px;
 
+    &.ng-hide-remove-active {
+//      transition : transform 500ms ease;
+    }
+
     &.ng-hide {
-      max-height : 0;
+//      transform : translateY(0);
     }
   }
 }
