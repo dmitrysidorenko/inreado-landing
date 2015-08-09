@@ -447,7 +447,7 @@
 }
 
 .pricing {
-  padding    : 50px 10px 70px 10px;
+  padding    : 42px 10px 70px 10px;
   text-align : center;
 
   &__content {
@@ -484,7 +484,7 @@
     text-align    : center;
     width         : 675px;
     display       : inline-block;
-    margin-bottom : 56px;
+    margin-bottom : 45px;
   }
 
   &__list {
@@ -502,42 +502,34 @@
       }
 
       &__icon {
-        display             : block;
-        background-size     : contain;
-        background-position : center center;
-        background-repeat   : no-repeat;
-        height              : 50px;
+        display       : block;
+        background    : no-repeat center center;
+        height        : 60px;
+        margin-bottom : 8px;
 
         &&_calendar {
-          background-image : url('../resources/img/icon_calender.png');
-          background-size  : auto 28px;
+          background-image : url('../resources/img/ic-calendar.png');
         }
 
         &&_time {
-          background-image : url('../resources/img/icon_time.png');
-          background-size  : auto 29px;
+          background-image : url('../resources/img/ic-time.png');
         }
 
         &&_card {
-          background-image : url('../resources/img/icon_card.png');
-          background-size  : auto 36px;
+          background-image : url('../resources/img/ic-card.png');
         }
       }
 
       &__title {
+        font-family    : @lato-font-light;
         color          : #707a88;
-        font-size      : 20px;
-        font-weight    : 400;
-        letter-spacing : 1.2px;
-        line-height    : 20px;
-        text-align     : center;
+        font-size      : 22px;
         padding-bottom : 13px;
       }
 
       &__text {
         color       : #2b3c48;
-        font-size   : 18px;
-        font-weight : 400;
+        font-size   : 24px;
         line-height : 18px;
         text-align  : center;
       }
@@ -558,9 +550,7 @@
     }
 
     &__amount {
-      font-size   : 45px;
-      font-weight : 300;
-      line-height : 45px;
+      font-size : 60px;
     }
     &__currency {
       text-align  : left;

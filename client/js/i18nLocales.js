@@ -140,7 +140,7 @@ angular.module('data', []).constant('i18nLocales', {
             },
             "list": {
                 "quantity": {
-                    "title": "Кол-во занятий",
+                    "title": "Количество занятий",
                     "text": "3 в неделю"
                 },
                 "duration": {
