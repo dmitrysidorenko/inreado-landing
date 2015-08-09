@@ -243,8 +243,8 @@
 
   &__sub-feature {
     float   : left;
-    width   : 73%;
-    padding : 30px 0 22px 20px;
+    width   : 77%;
+    padding : 30px 0 22px 45px;
     opacity : 1;
 
     &.ng-hide-remove-active {
@@ -261,7 +261,7 @@
     list-style       : none;
     padding          : 23px 0 0 0;
     margin           : 0;
-    width            : 27%;
+    width            : 23%;
     float            : left;
 
     &__item {
@@ -276,16 +276,15 @@
       }
 
       &__link {
-        color               : #818c9d;
-        font-size           : 17px;
-        line-height         : 19px;
-        text-align          : left;
-        display             : block;
-        padding             : 10px 0 10px 41px;
-        background-repeat   : no-repeat;
-        background-position : left center;
-        border-bottom       : 1px dotted #E9EFF1;
-        background-size     : 23px;
+        color           : #818c9d;
+        font-size       : 17px;
+        line-height     : 19px;
+        text-align      : left;
+        display         : block;
+        padding         : 10px 0;
+        background      : no-repeat left center;
+        border-bottom   : 1px dotted #E9EFF1;
+        background-size : 23px;
       }
 
       &:last-child > &__link {
@@ -325,7 +324,7 @@
 .advantages {
   background     : #f4f6f8;
   text-align     : center;
-  padding-bottom : 43px;
+  padding-bottom : 1px;
 
   &__content {
     max-width : 950px;
@@ -362,7 +361,7 @@
     text-align    : center;
     width         : 780px;
     display       : inline-block;
-    margin-bottom : 77px;
+    margin-bottom : 45px;
   }
 
   &__list {
@@ -371,12 +370,13 @@
     margin     : 0;
 
     &__item {
-      overflow : hidden;
+      overflow      : hidden;
+      margin-bottom : 40px;
 
       &__content {
         float      : left;
-        text-align : right;
-        width      : 50%;
+        text-align : left;
+        width      : 60%;
         padding    : 0 34px 0 0;
       }
 
@@ -392,14 +392,12 @@
       }
 
       &__icon {
-        display             : inline-block;
-        width               : 50%;
-        min-height          : 260px;
-        background-size     : 260px auto;
-        background-repeat   : no-repeat;
-        background-color    : transparent;
-        background-position : left center;
-        float               : right;
+        display         : inline-block;
+        width           : 30%;
+        min-height      : 260px;
+        background-size : 260px auto;
+        background      : transparent no-repeat left center;
+        float           : right;
 
         &&_materials {
           background-image : url('../resources/img/advatage_materials_big.png');
@@ -424,7 +422,7 @@
 
       &__title {
         color          : #2b3c48;
-        font-size      : 30px;
+        font-size      : 32px;
         font-weight    : 400;
         letter-spacing : -1.2px;
         line-height    : 30px;
@@ -433,10 +431,11 @@
 
       &__text {
         color         : #5f656d;
-        font-size     : 17px;
+        font-size     : 18px;
         font-weight   : 300;
-        line-height   : 23px;
+        line-height   : 24px;
         margin-bottom : 19px;
+        text-align    : justify;
       }
 
       &__delimeter {

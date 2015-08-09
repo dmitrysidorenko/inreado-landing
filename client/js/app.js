@@ -147,7 +147,7 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             },
             {
                 id: "speaking",
-                icon: "advantages__list__item__icon_studying"
+                icon: "advantages__list__item__icon_individual"
             },
             {
                 id: "program",
@@ -155,7 +155,7 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
             },
             {
                 id: "application",
-                icon: "advantages__list__item__icon_individual"
+                icon: "advantages__list__item__icon_studying"
             },
             {
                 id: "efficiency",

@@ -452,14 +452,8 @@ body .m-scooch-bulleted a.m-active {
   background-color: #36C79D;
   box-shadow: none;
 }
-.icon-topics {
-  background-image: url('../resources/img/topics.png');
-}
-.icon-adopted {
-  background-image: url('../resources/img/adopted.png');
-}
-.icon-context {
-  background-image: url('../resources/img/context.png');
+.ic-adapted-texts {
+  background-image: url('../resources/img/ic-adapted-texts.png');
 }
 /* Webfont: Lato-Regular */
 @font-face {
@@ -1422,8 +1416,8 @@ a {
   }
   .features__sub-feature {
     float: left;
-    width: 73%;
-    padding: 30px 0 22px 20px;
+    width: 77%;
+    padding: 30px 0 22px 45px;
     opacity: 1;
   }
   .features__sub-feature.ng-hide-remove-active {
@@ -1437,7 +1431,7 @@ a {
     list-style: none;
     padding: 23px 0 0 0;
     margin: 0;
-    width: 27%;
+    width: 23%;
     float: left;
   }
   .features__list__item {
@@ -1455,9 +1449,8 @@ a {
     line-height: 19px;
     text-align: left;
     display: block;
-    padding: 10px 0 10px 41px;
-    background-repeat: no-repeat;
-    background-position: left center;
+    padding: 10px 0;
+    background: no-repeat left center;
     border-bottom: 1px dotted #E9EFF1;
     background-size: 23px;
   }
@@ -1490,7 +1483,7 @@ a {
   .advantages {
     background: #f4f6f8;
     text-align: center;
-    padding-bottom: 43px;
+    padding-bottom: 1px;
   }
   .advantages__content {
     max-width: 950px;
@@ -1523,7 +1516,7 @@ a {
     text-align: center;
     width: 780px;
     display: inline-block;
-    margin-bottom: 77px;
+    margin-bottom: 45px;
   }
   .advantages__list {
     list-style: none;
@@ -1532,11 +1525,12 @@ a {
   }
   .advantages__list__item {
     overflow: hidden;
+    margin-bottom: 40px;
   }
   .advantages__list__item__content {
     float: left;
-    text-align: right;
-    width: 50%;
+    text-align: left;
+    width: 60%;
     padding: 0 34px 0 0;
   }
   .advantages__list__item:nth-child(odd) > .advantages__list__item__icon {
@@ -1550,12 +1544,10 @@ a {
   }
   .advantages__list__item__icon {
     display: inline-block;
-    width: 50%;
+    width: 30%;
     min-height: 260px;
     background-size: 260px auto;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-position: left center;
+    background: transparent no-repeat left center;
     float: right;
   }
   .advantages__list__item__icon.advantages__list__item__icon_materials {
@@ -1575,7 +1567,7 @@ a {
   }
   .advantages__list__item__title {
     color: #2b3c48;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 400;
     letter-spacing: -1.2px;
     line-height: 30px;
@@ -1583,10 +1575,11 @@ a {
   }
   .advantages__list__item__text {
     color: #5f656d;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 300;
-    line-height: 23px;
+    line-height: 24px;
     margin-bottom: 19px;
+    text-align: justify;
   }
   .advantages__list__item__delimeter {
     display: none;
