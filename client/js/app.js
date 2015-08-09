@@ -1,3 +1,4 @@
+/*jshint maxparams: 12*/
 angular
     .module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
     .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales",
@@ -487,6 +488,8 @@ angular.module('app').directive('centerTab', [function () {
     };
 }]);
 angular.module('app').directive('focusIt', function () {
+    "use strict";
+
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
