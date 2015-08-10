@@ -1,79 +1,84 @@
 /*jshint maxparams: 12*/
-angular
-    .module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate"])
-    .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales",
-        function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, $translateProvider, i18nLocales) {
-            "use strict";
+var app = angular.module('app', ['data', 'ngSanitize', 'angular-carousel', 'ngAnimate', 'ui.bootstrap', 'ui.router', "pascalprecht.translate", "smoothScroll"])
+app.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', '$translateProvider', "i18nLocales", "$provide",
+    function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, $translateProvider, i18nLocales, $provide) {
+        "use strict";
 
-            configureRoutes();
-            configureLocalizations();
+        configureRoutes();
+        configureLocalizations();
 
-            function configureRoutes() {
-                $uiViewScrollProvider.useAnchorScroll();
-                $stateProvider
-                    .state('features', {
-                        url: '/features'
-                    })
-                    .state('advantages', {
-                        url: '/advantages'
-                    })
-                    .state('pricing', {
-                        url: '/pricing'
-                    });
+        function configureRoutes() {
+            $stateProvider
+                .state('features', {
+                    url: '/features'
+                })
+                .state('advantages', {
+                    url: '/advantages'
+                })
+                .state('pricing', {
+                    url: '/pricing'
+                });
+
+            $uiViewScrollProvider.useAnchorScroll();
+            $provide.decorator('$anchorScroll', ["smoothScroll", "$delegate", function (smoothScroll, $anchorScroll) {
+                return function (elementId) {
+                    smoothScroll(document.getElementById(elementId), {offset: 49});
+                };
+            }]);
+        }
+
+        function configureLocalizations() {
+            /*jshint -W089 */
+            for (var locale in i18nLocales) {
+                $translateProvider.translations(locale, i18nLocales[locale]);
+            }
+            $translateProvider.fallbackLanguage('ru_RU');
+
+            var languages = null;
+
+            if (navigator.languages) {
+                languages = navigator.languages;
+            } else {
+                var language = navigator.language || navigator.userLanguage;
+                languages = [language];
             }
 
-            function configureLocalizations() {
-                /*jshint -W089 */
-                for (var locale in i18nLocales) {
-                    $translateProvider.translations(locale, i18nLocales[locale]);
-                }
-                $translateProvider.fallbackLanguage('ru_RU');
+            $translateProvider.preferredLanguage(determineLanguage(languages));
 
-                var languages = null;
-
-                if (navigator.languages) {
-                    languages = navigator.languages;
-                } else {
-                    var language = navigator.language || navigator.userLanguage;
-                    languages = [language];
-                }
-
-                $translateProvider.preferredLanguage(determineLanguage(languages));
-
-                function determineLanguage(languages) {
-                    // check if chinese language is present
-                    var preferredChinese = languages.some(function (language) {
-                        if (language.indexOf('zh') !== -1) {
-                            return true;
-                        } else if (language.indexOf('CN') !== -1) {
-                            return true;
-                        }
-                        return false;
-                    });
-
-                    // check if russian language is present
-                    var preferredRussian = languages.some(function (language) {
-                        if (language.indexOf('ru') !== -1) {
-                            return true;
-                        } else if (language.indexOf('RU') !== -1) {
-                            return true;
-                        }
-                        return false;
-                    });
-
-                    var preferredLangKey = 'en_US';
-                    if (preferredChinese) {
-                        preferredLangKey = 'zh_CN';
-                    } else if (preferredRussian) {
-                        preferredLangKey = 'ru_RU';
+            function determineLanguage(languages) {
+                // check if chinese language is present
+                var preferredChinese = languages.some(function (language) {
+                    if (language.indexOf('zh') !== -1) {
+                        return true;
+                    } else if (language.indexOf('CN') !== -1) {
+                        return true;
                     }
+                    return false;
+                });
 
-                    return preferredLangKey;
+                // check if russian language is present
+                var preferredRussian = languages.some(function (language) {
+                    if (language.indexOf('ru') !== -1) {
+                        return true;
+                    } else if (language.indexOf('RU') !== -1) {
+                        return true;
+                    }
+                    return false;
+                });
+
+                var preferredLangKey = 'en_US';
+                if (preferredChinese) {
+                    preferredLangKey = 'zh_CN';
+                } else if (preferredRussian) {
+                    preferredLangKey = 'ru_RU';
                 }
-            }
-        }]);
 
-angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQuery', '$anchorScroll', '$location', '$state', '$translate', '$q', function ($scope, $modal, $http, mobileQuery, $anchorScroll, $location, $state, $translate, $q) {
+                return preferredLangKey;
+            }
+        }
+    }]);
+
+app.controller('app', ['$scope', '$modal', '$http', 'mobileQuery', '$anchorScroll', '$location', '$state', '$translate', '$q', "smoothScroll", function ($scope, $modal, $http, mobileQuery, $anchorScroll, $location, $state, $translate, $q, smoothScroll) {
     "use strict";
 
     angular.extend($scope, {
@@ -395,7 +400,7 @@ angular.module('app').controller('app', ['$scope', '$modal', '$http', 'mobileQue
 
     mobileQuery.run();
 }]);
-angular.module('app').controller('getLesson', ['$scope', '$http', function ($scope, $http) {
+app.controller('getLesson', ['$scope', '$http', function ($scope, $http) {
     "use strict";
 
     angular.extend($scope, {
@@ -417,7 +422,7 @@ angular.module('app').controller('getLesson', ['$scope', '$http', function ($sco
         }
     });
 }]);
-angular.module('app').controller('subFeatures', ['$scope', 'feature', 'subFeature', function ($scope, feature, subFeature) {
+app.controller('subFeatures', ['$scope', 'feature', 'subFeature', function ($scope, feature, subFeature) {
     "use strict";
 
     angular.extend($scope, {
@@ -435,7 +440,7 @@ angular.module('app').controller('subFeatures', ['$scope', 'feature', 'subFeatur
     });
     subFeature.active = true;
 }]);
-angular.module('app').service('mobileQuery', ['$timeout', function ($timeout) {
+app.service('mobileQuery', ['$timeout', function ($timeout) {
     "use strict";
     var isMobileMediaQuery = 'only screen and (max-width : 1024px), only screen and (max-device-width : 773px)';
     this.isMobile = {
@@ -464,7 +469,7 @@ angular.module('app').service('mobileQuery', ['$timeout', function ($timeout) {
         return isMatch;
     }
 }]);
-angular.module('app').directive('centerTab', [function () {
+app.directive('centerTab', [function () {
     "use strict";
 
     return function ($scope, $element, $attr) {
@@ -487,7 +492,7 @@ angular.module('app').directive('centerTab', [function () {
         }
     };
 }]);
-angular.module('app').directive('focusIt', function () {
+app.directive('focusIt', function () {
     "use strict";
 
     return {

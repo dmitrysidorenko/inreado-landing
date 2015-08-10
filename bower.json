@@ -20,7 +20,8 @@
     "zepto": "*",
     "scooch": "*",
     "angular-translate": "~2.7.2",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "ngSmoothScroll": "~1.7.1"
   },
   "resolutions": {
     "angular": "1.3.16"

@@ -1383,7 +1383,7 @@ a {
     right: 0;
     z-index: 0;
   }
-  .features {
+  .sub-features {
     position: relative;
     overflow: hidden;
     height: 320px;

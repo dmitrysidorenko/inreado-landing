@@ -17,6 +17,7 @@
     <script src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
+    <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
 
     <script src="client/js/i18nLocales.js"></script>
     <script src="client/js/app.js"></script>
@@ -45,7 +46,7 @@
     </div>
 </header>
 
-<section class="top" id="possibilities">
+<section class="top" id="features">
     <h1 class="top__header" translate="top.header"></h1>
 
     <h2 class="top__sub-header" translate="top.subHeader"></h2>
@@ -61,7 +62,7 @@
     </ul>
 </section>
 
-<section class="features" id="features">
+<section class="sub-features" id="sub-features">
     <div class="features__content" ng-repeat="f in features" ng-show="f.active">
         <ul class="features__list">
             <li class="features__list__item" ng-repeat="sf in f.subFeatures" ng-class="{'active': sf.active}">

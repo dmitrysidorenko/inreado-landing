@@ -1534,7 +1534,7 @@ window.particlesJS.load = function (tag_id, path_config_json, callback) {
 };
 
 $(function () {
-        particlesJS('possibilities', {
+        particlesJS('features', {
             "particles": {
                 "number": {
                     "value": Math.floor(document.body.clientWidth / 10),
